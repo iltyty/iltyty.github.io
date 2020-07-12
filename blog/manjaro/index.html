@@ -1,0 +1,788 @@
+<!doctype html>
+<html lang="zh-cn">
+  <head>
+  <meta charset="utf-8">
+<title>manjaro安装总结 - 邱圆辉的博客</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<meta name="generator" content="Hugo 0.73.0" /><meta itemprop="name" content="manjaro安装总结">
+<meta itemprop="description" content="manjaro安装过程">
+<meta itemprop="datePublished" content="2019-09-22T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-09-22T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="461">
+<meta itemprop="image" content="https://chinwer.github.io/img/2014/04/pic01.jpg">
+
+
+
+<meta itemprop="keywords" content="manjaro,linux,tutorial," /><meta property="og:title" content="manjaro安装总结" />
+<meta property="og:description" content="manjaro安装过程" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://chinwer.github.io/blog/manjaro/" />
+<meta property="og:image" content="https://chinwer.github.io/img/2014/04/pic01.jpg" />
+<meta property="article:published_time" content="2019-09-22T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-09-22T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://chinwer.github.io/img/2014/04/pic01.jpg"/>
+
+<meta name="twitter:title" content="manjaro安装总结"/>
+<meta name="twitter:description" content="manjaro安装过程"/>
+<meta name="twitter:site" content="@chinwerqiu"/>
+<link rel="stylesheet" href="/css/bundle.min.759e3848ea529eef056dab665b241e2af569e601ab80f68f8d4a4d002a155dd4.css" integrity="sha256-dZ44SOpSnu8FbatmWyQeKvVp5gGrgPaPjUpNACoVXdQ="><link rel="stylesheet" href="/css/add-on.css">
+</head>
+
+  <body>
+    
+
+<header id="site-header">
+  <nav id="site-nav">
+    <h1 class="nav-title">
+      <a href="/" class="nav">
+        
+          
+            博客
+          
+        
+      </a>
+    </h1>
+    <menu id="site-nav-menu" class="flyout-menu menu">
+      
+        
+          
+          
+            <a href="/" class="nav link"><i class='fas fa-home'></i> 首页</a>
+          
+        
+      
+        
+          
+          
+            <a href="/about/" class="nav link"><i class='far fa-id-card'></i> 关于</a>
+          
+        
+      
+        
+          
+          
+            <a href="/blog/" class="nav link"><i class='far fa-newspaper'></i> 博客</a>
+          
+        
+      
+        
+          
+          
+            <a href="/categories/" class="nav link"><i class='fas fa-sitemap'></i> 分类</a>
+          
+        
+      
+        
+          
+          
+            <a href="/contact/" class="nav link"><i class='far fa-envelope'></i> 联系</a>
+          
+        
+      
+      <a href="#share-menu" class="nav share-toggle"><i class="fas fa-share-alt">&nbsp;</i>Share</a>
+      <a href="#search-input" class="nav search-toggle"><i class="fas fa-search">&nbsp;</i>Search</a>
+    </menu>
+    <a href="#search-input" class="nav search-toggle"><i class="fas fa-search fa-2x">&nbsp;</i></a>
+    <a href="#share-menu" class="nav share-toggle"><i class="fas fa-share-alt fa-2x">&nbsp;</i></a>
+    <a href="#lang-menu" class="nav lang-toggle" lang="zh-cn">zh-cn</a>
+    <a href="#site-nav" class="nav nav-toggle"><i class="fas fa-bars fa-2x"></i></a>
+  </nav>
+  <menu id="search" class="menu"><input id="search-input" class="search-input menu"></input><div id="search-results" class="search-results menu"></div></menu>
+  <menu id="lang-menu" class="flyout-menu menu">
+  <a href="#" lang="zh-cn" class="nav link active">中文 (zh-cn)</a>
+  
+    
+      
+        <a href="/en" lang="en" class="nav no-lang link">English (en)</a>
+      
+    
+      
+        <a href="/fr" lang="fr" class="nav no-lang link">Français (fr)</a>
+      
+    
+      
+        <a href="/pl" lang="pl" class="nav no-lang link">Polski (pl)</a>
+      
+    
+      
+        <a href="/pt" lang="pt" class="nav no-lang link">Português (pt)</a>
+      
+    
+      
+        <a href="/de" lang="de" class="nav no-lang link">Deutsche (de)</a>
+      
+    
+      
+        <a href="/es" lang="es" class="nav no-lang link">Española (es)</a>
+      
+    
+      
+    
+      
+        <a href="/zh-tw" lang="zh-tw" class="nav no-lang link">中文 (zh-tw)</a>
+      
+    
+      
+        <a href="/ja" lang="ja" class="nav no-lang link">日本語 (ja)</a>
+      
+    
+  
+</menu>
+
+  
+    <menu id="share-menu" class="flyout-menu menu">
+      <h1>Share Post</h1>
+      
+
+
+
+
+  
+    
+    <a href="//twitter.com/share?text=manjaro%e5%ae%89%e8%a3%85%e6%80%bb%e7%bb%93&amp;url=https%3a%2f%2fchinwer.github.io%2fblog%2fmanjaro%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+        <i class="fab fa-twitter"></i><p>&nbsp;Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fchinwer.github.io%2fblog%2fmanjaro%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
+        <i class="fab fa-facebook"></i><p>&nbsp;Facebook</p>
+        </a>
+  
+
+  
+    <a href="//www.reddit.com/submit?url=https%3a%2f%2fchinwer.github.io%2fblog%2fmanjaro%2f&amp;title=manjaro%e5%ae%89%e8%a3%85%e6%80%bb%e7%bb%93" target="_blank" rel="noopener" class="nav share-btn reddit">
+          <i class="fab fa-reddit-alien"></i><p>&nbsp;Reddit</p>
+        </a>
+  
+
+  
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fchinwer.github.io%2fblog%2fmanjaro%2f&amp;title=manjaro%e5%ae%89%e8%a3%85%e6%80%bb%e7%bb%93" target="_blank" rel="noopener" class="nav share-btn linkedin">
+            <i class="fab fa-linkedin"></i><p>&nbsp;LinkedIn</p>
+          </a>
+  
+
+  
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fchinwer.github.io%2fblog%2fmanjaro%2f&amp;description=manjaro%e5%ae%89%e8%a3%85%e6%80%bb%e7%bb%93" target="_blank" rel="noopener" class="nav share-btn pinterest">
+          <i class="fab fa-pinterest-p"></i><p>&nbsp;Pinterest</p>
+        </a>
+  
+
+  
+        <a href="mailto:?subject=%e6%9f%a5%e7%9c%8b%e6%ad%a4%e5%b8%96%e5%ad%90%e7%9a%84%e4%bd%9c%e8%80%85 %e9%82%b1%e5%9c%86%e8%be%89&amp;body=https%3a%2f%2fchinwer.github.io%2fblog%2fmanjaro%2f" target="_blank" class="nav share-btn email" data-proofer-ignore>
+          <i class="fas fa-envelope"></i><p>&nbsp;Email</p>
+        </a>
+  
+
+
+    </menu>
+  
+</header>
+
+    <div id="wrapper">
+      <section id="site-intro" >
+  <a href="/"><img src="https://chinwer.github.io/img/main/logo.jpg" class="circle" width="" alt="Hugo Future Imperfect Slim" /></a>
+  <header>
+    <h1>邱圆辉</h1>
+  </header>
+  <main>
+    <p>未来可期</p>
+  </main>
+  
+    <footer>
+      <ul class="socnet-icons">
+        
+
+        <li><a href="//github.com/chinwer" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//twitter.com/chinwerqiu" target="_blank" rel="noopener" title="Twitter" class="fab fa-twitter"></a></li>
+
+
+
+
+<li><a href="//telegram.me/Chinwer" target="_blank" rel="noopener" title="telegram" class="fab fa-telegram"></a></li>
+
+
+
+
+
+
+<li><a href="mailto:qiuyh0924@gmail.com" target="_blank" title="Email" class="far fa-envelope"></a></li>
+
+      </ul>
+    </footer>
+  
+</section>
+
+      <main id="site-main">
+        
+  <article class="post">
+    <header>
+  <div class="title">
+    
+      <h2><a href="/blog/manjaro/">manjaro安装总结</a></h2>
+    
+    
+      <p>manjaro安装过程</p>
+    
+  </div>
+  <div class="meta">
+    <time class="published" datetime="2019-09-22 00:00:00 &#43;0000 UTC">
+      September 22, 2019
+    </time>
+    <span class="author">邱圆辉</span>
+    
+      <p>3 分钟</p>
+    
+  </div>
+</header>
+
+    <section id="socnet-share">
+      
+
+
+
+
+  
+    
+    <a href="//twitter.com/share?text=manjaro%e5%ae%89%e8%a3%85%e6%80%bb%e7%bb%93&amp;url=https%3a%2f%2fchinwer.github.io%2fblog%2fmanjaro%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+        <i class="fab fa-twitter"></i><p>&nbsp;Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fchinwer.github.io%2fblog%2fmanjaro%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
+        <i class="fab fa-facebook"></i><p>&nbsp;Facebook</p>
+        </a>
+  
+
+  
+    <a href="//www.reddit.com/submit?url=https%3a%2f%2fchinwer.github.io%2fblog%2fmanjaro%2f&amp;title=manjaro%e5%ae%89%e8%a3%85%e6%80%bb%e7%bb%93" target="_blank" rel="noopener" class="nav share-btn reddit">
+          <i class="fab fa-reddit-alien"></i><p>&nbsp;Reddit</p>
+        </a>
+  
+
+  
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fchinwer.github.io%2fblog%2fmanjaro%2f&amp;title=manjaro%e5%ae%89%e8%a3%85%e6%80%bb%e7%bb%93" target="_blank" rel="noopener" class="nav share-btn linkedin">
+            <i class="fab fa-linkedin"></i><p>&nbsp;LinkedIn</p>
+          </a>
+  
+
+  
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fchinwer.github.io%2fblog%2fmanjaro%2f&amp;description=manjaro%e5%ae%89%e8%a3%85%e6%80%bb%e7%bb%93" target="_blank" rel="noopener" class="nav share-btn pinterest">
+          <i class="fab fa-pinterest-p"></i><p>&nbsp;Pinterest</p>
+        </a>
+  
+
+  
+        <a href="mailto:?subject=%e6%9f%a5%e7%9c%8b%e6%ad%a4%e5%b8%96%e5%ad%90%e7%9a%84%e4%bd%9c%e8%80%85 %e9%82%b1%e5%9c%86%e8%be%89&amp;body=https%3a%2f%2fchinwer.github.io%2fblog%2fmanjaro%2f" target="_blank" class="nav share-btn email" data-proofer-ignore>
+          <i class="fas fa-envelope"></i><p>&nbsp;Email</p>
+        </a>
+  
+
+
+    </section>
+    
+  <a href="/blog/manjaro/" class="image featured">
+    
+      <img src="https://chinwer.github.io/img/2014/04/pic01.jpg" alt="">
+    
+  </a>
+
+
+    <div class="content">
+      <p>鼓捣了一天 manjaro 系统，在室友的大力帮助下终于把基本的环境、包都配置好了，在此按照系统安装之后的时间顺序稍做记录，以便后续翻阅备用。</p>
+<h3 id="将-pacman-源更改为清华镜像源">将 pacman 源更改为清华镜像源</h3>
+<p>pacman 为 manjaro 默认的软件包管理工具，它将一个简单的二进制包格式和易用的构建系统结合了起来。不管软件包是来自官方的 Arch 库还是用户自己创建，Pacman 都能方便的管理。</p>
+<p>但是 pacman 默认源在国外，因此安装包时速度会很慢，所以第一步将 pacman 的源更改为清华镜像源。</p>
+<p>在终端输入以下命令：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo pacman-mirrors -i -c China -m rank
+</code></pre></div><h3 id="更新系统所有的包">更新系统（所有的包）</h3>
+<p>在终端输入以下命令：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo pacman -Syyu
+</code></pre></div><h3 id="安装-alacritty">安装 alacritty</h3>
+<p>alacritty 是 linux 上一个使用 gpu 进行渲染的终端模拟器（windows 也能安装，本人没试过也不想试，有了 linux 终端谁还记得 windows 呢）。其他简介、优点说明就省了，具体安装如下：（安装包的话找 pacman 就完事儿了）</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo pacman -S alacritty
+</code></pre></div><p>设置 i3 的默认终端为 alacritty（修改 i3 配置文件，文件路径见后文）：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">bindsym $mod+Return exec alacritty
+</code></pre></div><p>找到这一行并将 exec 后的终端改为 alacritty （上面已修改）。</p>
+<h3 id="安装窗口管理器-i3">安装窗口管理器 i3</h3>
+<p>i3 是 linux 系统上的一个平铺窗口管理器，简而言之在这里能够用键盘完全代替鼠标进行操作，而且还自带分屏及分屏排列等功能，完虐 windows 手动分屏功能（而且还只支持两分屏及四分屏），具体安装如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo pacman -S i3
+</code></pre></div><p>安装成功后 reboot，在登录界面点击设置图标可选择要进入的桌面环境（i3 或默认安装的 gnome），选择 i3 开始翱翔。</p>
+<h4 id="i3-基础配置">i3 基础配置</h4>
+<p>重启后系统会进入 i3 的配置页面，如左图：</p>
+<!-- raw HTML omitted -->
+<p>选择 esc，即不使用默认配置。然后显示页面如右图：</p>
+<p>这个页面配置的是 manjaro 的 mod 键（可以和很多键位组成一些快捷键），个人建议选择 alt 键，windows 键太远，而且在机械键盘上有 lalt 和 ralt 两个键，而 windows 只有一个键。</p>
+<h4 id="i3-常用快捷键及设置">i3 常用快捷键及设置</h4>
+<p>在 i3 配置文件中可修改快捷键搭配方式，如：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">bindsym $mod+Shift+h move left
+</code></pre></div><p>即设置 mod + Shift + h 为向左移动当前窗口。</p>
+<p>以下为我的一些个人 i3 快捷键：</p>
+<!-- raw HTML omitted -->
+<table>
+<thead>
+<tr>
+<th align="center">快捷键</th>
+<th align="center">作用</th>
+<th align="center">快捷键</th>
+<th align="center">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">mod + return</td>
+<td align="center">新建终端窗口</td>
+<td align="center">mod + f</td>
+<td align="center">全屏状态切换</td>
+</tr>
+<tr>
+<td align="center">mod + h</td>
+<td align="center">向左切换窗口</td>
+<td align="center">mod + shift + h</td>
+<td align="center">向左移动窗口</td>
+</tr>
+<tr>
+<td align="center">mod + j</td>
+<td align="center">向下切换窗口</td>
+<td align="center">mod + shift + j</td>
+<td align="center">向下移动窗口</td>
+</tr>
+<tr>
+<td align="center">mod + k</td>
+<td align="center">向上切换窗口</td>
+<td align="center">mod + shift + k</td>
+<td align="center">向上移动窗口</td>
+</tr>
+<tr>
+<td align="center">mod + l</td>
+<td align="center">向右切换窗口</td>
+<td align="center">mod + shift + l</td>
+<td align="center">向右移动窗口</td>
+</tr>
+<tr>
+<td align="center">mod + f</td>
+<td align="center">全屏状态切换</td>
+<td align="center">mod + d</td>
+<td align="center">进入软件打开界面</td>
+</tr>
+<tr>
+<td align="center">mod + b</td>
+<td align="center">打开默认浏览器</td>
+<td align="center">mod + s</td>
+<td align="center">以上下标签式（栈）排列窗口</td>
+</tr>
+</tbody>
+</table>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">nvi ~/.config/i3/config
+</code></pre></div><p>其中 nvi 为 neovim 的别名，后面将介绍其相关配置。</p>
+<h3 id="修改默认-shell-环境">修改默认 shell 环境</h3>
+<ul>
+<li>
+<p>安装 zsh</p>
+<p>manjaro 默认的 shell 环境为 bash。而 zsh 环境比 bash 更方便，因此选择将默认 shell 改为 zsh。</p>
+<p>zsh 的介绍及配置见：<a href="https://zhuanlan.zhihu.com/p/19556676">终极 Shell——ZSH - 池建强的文章 - 知乎</a></p>
+<p>各系统 zsh 安装方式见：<a href="https://github.com/robbyrussell/oh-my-zsh/wiki/Installing-ZSH">Installing ZSH</a></p>
+<p>manjaro 系统安装 zsh 的命令同上：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo pacman -S zsh
+</code></pre></div></li>
+<li>
+<p>将 zsh 设置为默认 shell</p>
+<p>zsh 安装完成后需要将其设置为默认 shell，命令如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">chsh -s <span style="color:#66d9ef">$(</span>which zsh<span style="color:#66d9ef">)</span>
+</code></pre></div></li>
+<li>
+<p>oh-my-zsh 的安装</p>
+<p>oh-my-zsh 是一个 zsh 配置管理框架，可用于安装各种插件和主题更改等功能。</p>
+<p>github 主页为：<a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh</a></p>
+<p>安装很简单：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl -Lo install.sh https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh
+</code></pre></div><p>若想更换 zsh 相关配置，修改其配置文件：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">nvi ~/.zshrc
+</code></pre></div><p>如更换主题（修改配置文件中的 ZSH_THEME 字段）：</p>
+<blockquote>
+<p>ZSH_THEME=&quot;robbyrussell&rdquo;</p>
+</blockquote>
+<p>给命令设置别名（alias）：</p>
+<blockquote>
+<p>alias py=&quot;python&rdquo;</p>
+</blockquote>
+<p>其中等号左边为要设置的别名，右边引号内为原始命令。</p>
+</li>
+</ul>
+<p>每次修改 zsh 配置后需要重启终端或输入以下命令应用修改：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">source ~/.zshrc
+</code></pre></div><h3 id="安装-vim">安装 vim</h3>
+<p>用 vim 编辑文本的好处我已经不想多说了，用过的都说好啊！然而 manjaro 竟然不自带 vim，好在有 pacman 管理工具：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo pacman -S vim
+</code></pre></div><h3 id="安装-neovim">安装 neovim</h3>
+<p>neovim 科普文章：</p>
+<p><a href="https://zhuanlan.zhihu.com/p/21364426">科普，21 世纪的 Vim - neovim - 亦俊的文章 - 知乎</a></p>
+<p>安装命令：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo pacman -S neovim
+</code></pre></div><p>由于从零开始配置 vim 过于麻烦，因此直接使用 github 上的 thinkvim 配置。具体安装及注意事项见：</p>
+<p><a href="https://github.com/hardcoreplayers/ThinkVim">github hardcoreplayers/ThinkVim</a></p>
+<h3 id="配置-alacritty">配置 alacritty</h3>
+<h3 id="主题">主题</h3>
+<p>alacritty 配置文件：</p>
+<blockquote>
+<p>~/.config/alacritty/alacritty.yml</p>
+</blockquote>
+<p>在其中修改 colors 字段的代码即可。具体主题可见：</p>
+<p><a href="https://github.com/eendroroy/alacritty-theme">github eendroroy/alacritty-theme</a></p>
+<p>用对应主题的配置文件中的 colors 字段覆盖上述字段。</p>
+<p>每次修改配置文件后重启终端即可应用修改。</p>
+<h4 id="字体">字体</h4>
+<p>修改 alacritty 配置文件中的 fonts 字段。</p>
+<h4 id="compton">compton</h4>
+<p>compton 是一个合成管理器（我也不知道什么意思），可以给 i3 窗口添加淡入淡出、半透明、阴影等效果，具体介绍见：
+<a href="https://wiki.archlinux.org/index.php/Compton">Arch Linux - Compton</a></p>
+<p>compton 的安装及环境依赖见：
+<a href="https://github.com/tryone144/compton">github tryone144/compton</a></p>
+<p>配置文件：</p>
+<blockquote>
+<p>~/.config/compton.conf</p>
+</blockquote>
+<p>修改配置文件后需要关闭重启 compton 以应用修改：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">killall compton
+</code></pre></div><p>然后 <em>ctrl + d</em> 搜索 compton 并打开。</p>
+<p>安装并配置好后在 i3 配置文件中添加代码如下：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">exec_always compton
+</code></pre></div><p>即每次启动 i3 时自动启动 compton。</p>
+<h3 id="其余配置">其余配置</h3>
+<ul>
+<li>
+<h4 id="capslock-到-esc-的映射">CapsLock 到 Esc 的映射</h4>
+<p>CapsLock 占据了重要的位置发挥着最少的最用，Esc 占据了最偏远的位置发着最大的作用。而在 vim 中 Esc 键又是极其重要的，因此有必要将 CapsLock 映射成 Esc。</p>
+<p>具体方法网上有很多教程，试了几个不管用，我个人的最终解决方法为：</p>
+<ol>
+<li>在家目录下新建.xmodmap 文件</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">nvi ~./xmodmap
+</code></pre></div><ol start="2">
+<li>加入以下两行代码：</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">clear lock
+keycode 0x42 <span style="color:#f92672">=</span> Escape
+</code></pre></div><ol start="3">
+<li>修改 i3 配置文件：</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">nvi ~/.config/i3/config
+</code></pre></div><ol start="4">
+<li>添加如下代码：</li>
+</ol>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">exec_always xmodmap ~/.xmodmap
+</code></pre></div><p>即每次启动 i3 时自动应用这个映射。</p>
+<p>但是正确的方法应该是从系统层面将 CapsLock 修改为 Escape，如 Windows 里面修改注册表的方法，但是监于本人还未找到合适方法，先用这个代替吧。</p>
+</li>
+<li>
+<h4 id="安装-variety">安装 variety</h4>
+<p>到目前为止 i3 还没有一个合适的桌面壁纸呢，因此安装 variety 壁纸管理工具：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo pacman -S variety
+</code></pre></div></li>
+<li>
+<h4 id="安装-arandr">安装 arandr</h4>
+<p>arandr 是终端的一个文件浏览器，同时支持 vim 的操作语法，十分方便：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo pacman -S arandr
+</code></pre></div><p>然后在 i3 配置文件中添加：</p>
+<pre><code>exec_always variety
+exec_always arandr
+</code></pre>
+<p>即每次启动 i3 时自动启动这两个软件。</p>
+</li>
+</ul>
+<p>关于 manjaro 的配置暂时就这么多，以后应该会安装更多软件，到时再作记录。</p>
+<p>总而言之这几天用着 manjaro 感觉工作效率提高了不少，一个字：爽！</p>
+<p>如果你目前还是一个忠实的 windows 用户，同时又是一个程序猿的话，欢迎加入 linux 大家庭！</p>
+
+    </div>
+    <footer>
+      <ul class="stats">
+  <li class="categories">
+    <ul>
+    
+      <li>None</li>
+    
+    </ul>
+  </li>
+  <li class="tags">
+    <ul>
+    
+      
+        
+          <li><a class="article-terms-link" href="/tags/manjaro/">manjaro</a></li>
+        
+          <li><a class="article-terms-link" href="/tags/linux/">linux</a></li>
+        
+          <li><a class="article-terms-link" href="/tags/tutorial/">tutorial</a></li>
+        
+      
+    
+    </ul>
+  </li>
+</ul>
+
+    </footer>
+  </article>
+  
+  <article class="post">
+    
+<div>
+  <h2>说些什么</h2>
+    <form id="post-js-form" class="post-new-comment" method="POST">
+      
+      <h5 class='post-reply-notice hidden'>
+        <span class='post-reply-arrow'></span><span class='post-reply-name'></span>
+      </h5>
+
+      
+      <input type="hidden" name="options[entryId]" value="1383b629e006109ecb710c6b0d56eae4">
+      <input type='hidden' name='fields[replyThread]' value=''>
+      <input type='hidden' name='fields[replyID]' value=''>
+      <input type='hidden' name='fields[replyName]' value=''>
+
+      
+      <input required name='fields[name]' type='text' placeholder='您的名字（必填）'>
+      <input name='fields[website]' type='text' placeholder='您的网站'>
+      <input required name='fields[email]' type='email' placeholder='您的电邮地址（必填，用于 Gravatar 头象）'>
+      <textarea required name='fields[body]' placeholder='您的留言。可使用 Markdown。（搜索 &#39;Markdown 語法速查&#39;）' rows='10'></textarea>
+
+      
+      
+
+      
+      <p class='post-submit-notice'>
+        <strong class='post-submit-notice-text submit-success hidden'>感谢您的评论！被批准后它会立即在此站点展示。</strong>
+        <strong class='post-submit-notice-text submit-failed hidden'>很抱歉，您的提交存在错误。请确保所有必填字段都已填写正确，然后再试一次。</strong>
+      </p>
+
+      
+      <input type='submit' value='送出' class='button'>
+      <input type='submit' value='已送出' class='hidden button' disabled>
+      <input type='reset' value='重设' class='button'>
+    </form>
+</div>
+
+
+<div>
+  <h2>评论</h2>
+
+  
+    
+      <p>还沒有留言。</p>
+    
+  
+</div>
+
+  </article>
+
+
+  <div class="pagination">
+  
+    <a href="/blog/blog-review/" class="button"><div class="previous"><div>一篇简单的感想&amp;总结</div></div></a>
+  
+  
+</div>
+
+
+      </main>
+      <section id="site-sidebar">
+  
+    <section id="recent-posts">
+      <header>
+        <h1>最新文章</h1>
+      </header>
+      
+      <article class="mini-post">
+        <section>
+          
+  <a href="/blog/manjaro/" class="image featured">
+    
+      <img src="https://chinwer.github.io/img/2014/04/pic01.jpg" alt="">
+    
+  </a>
+
+
+        </section>
+        <header>
+          <h2><a href="/blog/manjaro/">manjaro安装总结</a></h2>
+          <time class="published" datetime="">September 22, 2019</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+        <section>
+          
+  <a href="/blog/blog-review/" class="image featured">
+    
+      <img src="https://chinwer.github.io/img/2014/09/pic03.jpg" alt="">
+    
+  </a>
+
+
+        </section>
+        <header>
+          <h2><a href="/blog/blog-review/">一篇简单的感想&amp;总结</a></h2>
+          <time class="published" datetime="">September 14, 2019</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+        <section>
+          
+  <a href="/blog/markdown-syntax/" class="image featured">
+    
+      <img src="https://chinwer.github.io/img/2014/04/pic02.jpg" alt="">
+    
+  </a>
+
+
+        </section>
+        <header>
+          <h2><a href="/blog/markdown-syntax/">Markdown Syntax Guide</a></h2>
+          <time class="published" datetime="">March 11, 2019</time>
+        </header>
+      </article>
+      
+      
+    </section>
+  
+
+  
+    
+      <section id="categories">
+        <header>
+          <h1><a href="/categories">分类</a></h1>
+        </header>
+        <ul>
+          
+            
+          
+          
+          <li>
+            
+              <a href="/categories/syntax/">syntax<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/themes/">themes<span class="count">1</span></a>
+            
+          
+          </li>
+        </ul>
+      </section>
+    
+  
+
+  
+    <section id="mini-bio">
+      <header>
+        <h1>关于</h1>
+      </header>
+      <p>This theme was developed for Hugo static site generator.</p>
+      <footer>
+        <a href="/about" class="button">了解更多</a>
+      </footer>
+    </section>
+  
+</section>
+
+      <footer id="site-footer">
+  
+      <ul class="socnet-icons">
+        
+
+        <li><a href="//github.com/chinwer" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//twitter.com/chinwerqiu" target="_blank" rel="noopener" title="Twitter" class="fab fa-twitter"></a></li>
+
+
+
+
+<li><a href="//telegram.me/Chinwer" target="_blank" rel="noopener" title="telegram" class="fab fa-telegram"></a></li>
+
+
+
+
+
+
+<li><a href="mailto:qiuyh0924@gmail.com" target="_blank" title="Email" class="far fa-envelope"></a></li>
+
+      </ul>
+  
+  <p class="copyright">
+    
+      &copy; 2019
+      
+        邱圆辉的博客
+      
+    . <br>
+    主题: <a href='https://themes.gohugo.io/hugo-future-imperfect-slim/' target='_blank' rel='noopener'>Hugo Future Imperfect Slim</a><br>移植自 <a href='https://html5up.net/future-imperfect' target='_blank' rel='noopener'>HTML5 UP</a> | 由 <a href='https://gohugo.io/' target='_blank' rel='noopener' title='0.73.0'>Hugo</a> 驱动
+  </p>
+</footer>
+<a id="back-to-top" href="#" class="fas fa-arrow-up fa-2x"></a>
+
+      <script src="/js/highlight.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script><script src="/js/bundle.min.25b75981613588670b44ec3137da5eea58be6c8e55cb67275a70996b848b9ca1.js" integrity="sha256-JbdZgWE1iGcLROwxN9pe6li&#43;bI5Vy2cnWnCZa4SLnKE="></script>
+    <script src="/js/add-on.js"></script>
+    </div>
+  </body>
+</html>

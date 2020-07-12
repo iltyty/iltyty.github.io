@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>tutorial on 邱圆辉的博客</title>
+    <link>https://chinwer.github.io/tags/tutorial/</link>
+    <description>Recent content in tutorial on 邱圆辉的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 22 Sep 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://chinwer.github.io/tags/tutorial/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>manjaro安装总结</title>
+      <link>https://chinwer.github.io/blog/manjaro/</link>
+      <pubDate>Sun, 22 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://chinwer.github.io/blog/manjaro/</guid>
+      <description>鼓捣了一天 manjaro 系统，在室友的大力帮助下终于把基本的环境、包都配置好了，在此按照系统安装之后的时间顺序稍做记录，以便后续翻阅备用。
+将 pacman 源更改为清华镜像源 pacman 为 manjaro 默认的软件包管理工具，它将一个简单的二进制包格式和易用的构建系统结合了起来。不管软件包是来自官方的 Arch 库还是用户自己创建，Pacman 都能方便的管理。
+但是 pacman 默认源在国外，因此安装包时速度会很慢，所以第一步将 pacman 的源更改为清华镜像源。
+在终端输入以下命令：
+sudo pacman-mirrors -i -c China -m rank 更新系统（所有的包） 在终端输入以下命令：
+sudo pacman -Syyu 安装 alacritty alacritty 是 linux 上一个使用 gpu 进行渲染的终端模拟器（windows 也能安装，本人没试过也不想试，有了 linux 终端谁还记得 windows 呢）。其他简介、优点说明就省了，具体安装如下：（安装包的话找 pacman 就完事儿了）
+sudo pacman -S alacritty 设置 i3 的默认终端为 alacritty（修改 i3 配置文件，文件路径见后文）：
+bindsym $mod+Return exec alacritty 找到这一行并将 exec 后的终端改为 alacritty （上面已修改）。
+安装窗口管理器 i3 i3 是 linux 系统上的一个平铺窗口管理器，简而言之在这里能够用键盘完全代替鼠标进行操作，而且还自带分屏及分屏排列等功能，完虐 windows 手动分屏功能（而且还只支持两分屏及四分屏），具体安装如下：</description>
+    </item>
+    
+  </channel>
+</rss>
