@@ -30,6 +30,19 @@ sudo chmod -R 777 Chevereto Mysql数据库设置 为了Chevereto能够正常存�
     </item>
     
     <item>
+      <title>力扣总结：1248. 统计优美子数组</title>
+      <link>https://chinwer.github.io/blog/leetcode-1248/</link>
+      <pubDate>Mon, 13 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://chinwer.github.io/blog/leetcode-1248/</guid>
+      <description>方法一：数学   思路和算法
+  用一个 $odd$ 数组记录第 $i$ 个奇数的下标。因此子数组 $[odd[i], odd[i+k-1]]$ 恰好包含 $k$ 个奇数 ；
+  同时，子数组 $(odd[i-1], odd[i])$ 及 $(odd[i+k-1], odd[i+k])$ 均为偶数。因此所有起始点为第 $i$ 个奇数的“优美”数组的个数即为： $$ (odd[i] - odd[i-1]) * (odd[i+k] - odd[i+k-1]) $$
+    c++代码
+class Solution { public: int numberOfSubarrays(vector&amp;lt;int&amp;gt;&amp;amp; nums, int k) { vector&amp;lt;int&amp;gt; odds = { -1 }; int size = nums.size(); for (int i = 0; i &amp;lt; size; i++) { if (nums[i] &amp;amp; 1) { // nums[i] is an odd number  odds.</description>
+    </item>
+    
+    <item>
       <title>力扣总结：5. 最长回文子串</title>
       <link>https://chinwer.github.io/blog/leetcode-5/</link>
       <pubDate>Mon, 13 Jul 2020 00:00:00 +0000</pubDate>
