@@ -6,6 +6,42 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
+
+  <script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
 <meta name="generator" content="Hugo 0.73.0" /><meta itemprop="name" content="Contact">
 <meta itemprop="description" content="">
 
@@ -271,6 +307,23 @@
       <article class="mini-post">
         <section>
           
+  <a href="/blog/leetcode-5/" class="image featured">
+    
+      <img src="http://47.94.16.255/images/images/2020/07/13/star1.jpg" alt="">
+    
+  </a>
+
+
+        </section>
+        <header>
+          <h2><a href="/blog/leetcode-5/">力扣总结：5. 最长回文子串</a></h2>
+          <time class="published" datetime="">July 13, 2020</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+        <section>
+          
   <a href="/blog/manjaro/" class="image featured">
     
       <img src="https://chinwer.github.io/img/2014/04/pic01.jpg" alt="">
@@ -319,6 +372,10 @@
         </header>
       </article>
       
+      
+        <footer>
+          <a href="/blog/" class="button">查看更多</a>
+        </footer>
       
     </section>
   
