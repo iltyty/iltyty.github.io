@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://chinwer.github.io/blog/</loc>
-    <lastmod>2019-09-22T00:00:00+00:00</lastmod>
+    <lastmod>2020-07-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
@@ -18,23 +18,23 @@
   </url>
   
   <url>
-    <loc>https://chinwer.github.io/tags/linux/</loc>
-    <lastmod>2019-09-22T00:00:00+00:00</lastmod>
+    <loc>https://chinwer.github.io/tags/chevereto/</loc>
+    <lastmod>2020-07-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chinwer.github.io/tags/manjaro/</loc>
-    <lastmod>2019-09-22T00:00:00+00:00</lastmod>
+    <loc>https://chinwer.github.io/blog/chevereto/</loc>
+    <lastmod>2020-07-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chinwer.github.io/blog/manjaro/</loc>
-    <lastmod>2019-09-22T00:00:00+00:00</lastmod>
+    <loc>https://chinwer.github.io/tags/image-hosting/</loc>
+    <lastmod>2020-07-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://chinwer.github.io/tags/</loc>
-    <lastmod>2019-09-22T00:00:00+00:00</lastmod>
+    <lastmod>2020-07-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -84,12 +84,12 @@
   
   <url>
     <loc>https://chinwer.github.io/tags/tutorial/</loc>
-    <lastmod>2019-09-22T00:00:00+00:00</lastmod>
+    <lastmod>2020-07-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://chinwer.github.io/</loc>
-    <lastmod>2019-09-22T00:00:00+00:00</lastmod>
+    <lastmod>2020-07-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -135,6 +135,21 @@
                 hreflang="zh-cn"
                 href="https://chinwer.github.io/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://chinwer.github.io/tags/linux/</loc>
+    <lastmod>2019-09-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chinwer.github.io/tags/manjaro/</loc>
+    <lastmod>2019-09-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chinwer.github.io/blog/manjaro/</loc>
+    <lastmod>2019-09-22T00:00:00+00:00</lastmod>
   </url>
   
   <url>

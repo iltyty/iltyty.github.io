@@ -6,10 +6,37 @@
     <description>Recent content in Tags on 邱圆辉的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 22 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 13 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://chinwer.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>chevereto</title>
+      <link>https://chinwer.github.io/tags/chevereto/</link>
+      <pubDate>Mon, 13 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://chinwer.github.io/tags/chevereto/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>image hosting</title>
+      <link>https://chinwer.github.io/tags/image-hosting/</link>
+      <pubDate>Mon, 13 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://chinwer.github.io/tags/image-hosting/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tutorial</title>
+      <link>https://chinwer.github.io/tags/tutorial/</link>
+      <pubDate>Mon, 13 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://chinwer.github.io/tags/tutorial/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>linux</title>
@@ -26,15 +53,6 @@
       <pubDate>Sun, 22 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>https://chinwer.github.io/tags/manjaro/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tutorial</title>
-      <link>https://chinwer.github.io/tags/tutorial/</link>
-      <pubDate>Sun, 22 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://chinwer.github.io/tags/tutorial/</guid>
       <description></description>
     </item>
     

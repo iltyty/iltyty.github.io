@@ -6,10 +6,28 @@
     <description>Recent content in Blog on 邱圆辉的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 22 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 13 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://chinwer.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Chevereto安装总结</title>
+      <link>https://chinwer.github.io/blog/chevereto/</link>
+      <pubDate>Mon, 13 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://chinwer.github.io/blog/chevereto/</guid>
+      <description>Chevereto介绍 Chevereto是一款私人图床服务器软件，可以进行图片的存储、处理及分发。昨晚折腾了一个小时，终于是把Chevereto在服务器上搭好了，在此做下总结。
+安装环境 我使用的LAMP环境，具体如下：
+ Linux version 4.18.0, CentOS Linux release 8.1.1911 Apache 2.4.37 (centos) Mysql 8.0.17 PHP 7.2.11  上面几个依赖的安装就不说了，基本上用yum install xxx安装就行了。
+Chevereto源码安装 我的网页根目录为apache默认的/var/www/html，因此在此目录下克隆Chevereto的github项目即可。
+这里要注意正确设置克隆后的Chevereto文件夹用户权限。如我的apache服务的用户是apache，那么设置Chevereto权限如下：
+sudo chown -R apache:apache /var/www/html/Chevereto 同时，需要保证apache用户对此文件夹有写权限：
+sudo chmod -R 700 Chevereto 即只有此文件夹的所有者（apache）具有读、写以及执行的权限。
+然而实际上发现这样的话打开网页会403 Forbidden，所以直接设置所有人对此目录可读写及执行了（逃~）：
+sudo chmod -R 777 Chevereto Mysql数据库设置 为了Chevereto能够正常存储图片，需要给它专门创建一个数据库和数据库用户，这里我首先创建一个名为imagesuser的mysql用户以及一个名为images的数据库，然后授权该用户对此数据库拥有所有权限：
+ 以root用户的身份登录到数据库：  mysql -u root -p 创建一个用户名为imagesuser，密码为0924的用户：  create user imagesuser identified by 0924; 创建一个名为images的数据库：  create database images; 授权该用户对此数据库拥有全部权限：  grant all on images.</description>
+    </item>
     
     <item>
       <title>manjaro安装总结</title>
