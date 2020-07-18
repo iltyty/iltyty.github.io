@@ -3,13 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://chinwer.github.io/tags/algorithm/</loc>
-    <lastmod>2020-07-13T00:00:00+00:00</lastmod>
+    <loc>https://chinwer.github.io/tags/binary-tree/</loc>
+    <lastmod>2020-07-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://chinwer.github.io/blog/</loc>
-    <lastmod>2020-07-13T00:00:00+00:00</lastmod>
+    <lastmod>2020-07-18T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
@@ -23,33 +23,8 @@
   </url>
   
   <url>
-    <loc>https://chinwer.github.io/tags/chevereto/</loc>
-    <lastmod>2020-07-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chinwer.github.io/blog/chevereto/</loc>
-    <lastmod>2020-07-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chinwer.github.io/tags/image-hosting/</loc>
-    <lastmod>2020-07-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chinwer.github.io/tags/leetcode/</loc>
-    <lastmod>2020-07-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chinwer.github.io/tags/solution/</loc>
-    <lastmod>2020-07-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://chinwer.github.io/tags/</loc>
-    <lastmod>2020-07-13T00:00:00+00:00</lastmod>
+    <lastmod>2020-07-18T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -98,28 +73,13 @@
   </url>
   
   <url>
-    <loc>https://chinwer.github.io/tags/tutorial/</loc>
-    <lastmod>2020-07-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chinwer.github.io/tags/two-pointers/</loc>
-    <lastmod>2020-07-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chinwer.github.io/blog/leetcode-1248/</loc>
-    <lastmod>2020-07-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chinwer.github.io/blog/leetcode-5/</loc>
-    <lastmod>2020-07-13T00:00:00+00:00</lastmod>
+    <loc>https://chinwer.github.io/blog/binary-tree-traversal/</loc>
+    <lastmod>2020-07-18T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://chinwer.github.io/</loc>
-    <lastmod>2020-07-13T00:00:00+00:00</lastmod>
+    <lastmod>2020-07-18T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -165,6 +125,56 @@
                 hreflang="zh-cn"
                 href="https://chinwer.github.io/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://chinwer.github.io/tags/algorithm/</loc>
+    <lastmod>2020-07-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chinwer.github.io/tags/chevereto/</loc>
+    <lastmod>2020-07-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chinwer.github.io/blog/chevereto/</loc>
+    <lastmod>2020-07-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chinwer.github.io/tags/image-hosting/</loc>
+    <lastmod>2020-07-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chinwer.github.io/tags/leetcode/</loc>
+    <lastmod>2020-07-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chinwer.github.io/tags/solution/</loc>
+    <lastmod>2020-07-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chinwer.github.io/tags/tutorial/</loc>
+    <lastmod>2020-07-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chinwer.github.io/tags/two-pointers/</loc>
+    <lastmod>2020-07-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chinwer.github.io/blog/leetcode-1248/</loc>
+    <lastmod>2020-07-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chinwer.github.io/blog/leetcode-5/</loc>
+    <lastmod>2020-07-13T00:00:00+00:00</lastmod>
   </url>
   
   <url>

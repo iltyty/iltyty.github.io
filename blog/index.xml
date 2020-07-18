@@ -6,10 +6,23 @@
     <description>Recent content in Blog on 邱圆辉的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 13 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 18 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://chinwer.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>二叉树的几种遍历方式总结</title>
+      <link>https://chinwer.github.io/blog/binary-tree-traversal/</link>
+      <pubDate>Sat, 18 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://chinwer.github.io/blog/binary-tree-traversal/</guid>
+      <description>记录一下二叉树的几种遍历方式的代码模板，包括前序、中序、后序及层次遍历，均用c++实现。
+先序遍历   递归版本
+void preorder_traversal(TreeNode *root) { if (!root) { return; } /* Visit the current node */ preorder_traversal(root-&amp;gt;left); preorder_traversal(root-&amp;gt;right); }   迭代版本一
+void preorder_traversal(TreeNode *root) { stack&amp;lt;TreeNode *&amp;gt; s; s.push(root); while (!s.empty()) { TreeNode *node = s.top(); s.pop(); if (node) { /* Visit the current node */ s.push(root-&amp;gt;right); s.push(root-&amp;gt;left); } } }   迭代版本二
+void preorder_traversal(TreeNode *root) { stack&amp;lt;TreeNode *&amp;gt; s; TreeNode *node = root; while (node || !</description>
+    </item>
     
     <item>
       <title>Chevereto安装总结</title>
@@ -37,7 +50,7 @@ sudo chmod -R 777 Chevereto Mysql数据库设置 为了Chevereto能够正常存�
       <guid>https://chinwer.github.io/blog/leetcode-1248/</guid>
       <description>方法一：数学   思路和算法
   用一个 $odd$ 数组记录第 $i$ 个奇数的下标。因此子数组 $[odd[i], odd[i+k-1]]$ 恰好包含 $k$ 个奇数 ；
-  同时，子数组 $(odd[i-1], odd[i])$ 及 $(odd[i+k-1], odd[i+k])$ 均为偶数。因此所有起始点为第 $i$ 个奇数的“优美”数组的个数即为： $$ (odd[i] - odd[i-1]) * (odd[i+k] - odd[i+k-1]) $$
+  同时，子数组 $(odd[i-1], odd[i])$ 及 $(odd[i+k-1], odd[i+k])$ 均为偶数。因此所有起始点为第 $i$ 个奇数的“优美”数组的个数即为：
     c++代码
 class Solution { public: int numberOfSubarrays(vector&amp;lt;int&amp;gt;&amp;amp; nums, int k) { vector&amp;lt;int&amp;gt; odds = { -1 }; int size = nums.size(); for (int i = 0; i &amp;lt; size; i++) { if (nums[i] &amp;amp; 1) { // nums[i] is an odd number  odds.</description>
     </item>

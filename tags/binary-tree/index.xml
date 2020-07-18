@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>binary tree on 邱圆辉的博客</title>
+    <link>https://chinwer.github.io/tags/binary-tree/</link>
+    <description>Recent content in binary tree on 邱圆辉的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 18 Jul 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://chinwer.github.io/tags/binary-tree/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>二叉树的几种遍历方式总结</title>
+      <link>https://chinwer.github.io/blog/binary-tree-traversal/</link>
+      <pubDate>Sat, 18 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://chinwer.github.io/blog/binary-tree-traversal/</guid>
+      <description>记录一下二叉树的几种遍历方式的代码模板，包括前序、中序、后序及层次遍历，均用c++实现。
+先序遍历   递归版本
+void preorder_traversal(TreeNode *root) { if (!root) { return; } /* Visit the current node */ preorder_traversal(root-&amp;gt;left); preorder_traversal(root-&amp;gt;right); }   迭代版本一
+void preorder_traversal(TreeNode *root) { stack&amp;lt;TreeNode *&amp;gt; s; s.push(root); while (!s.empty()) { TreeNode *node = s.top(); s.pop(); if (node) { /* Visit the current node */ s.push(root-&amp;gt;right); s.push(root-&amp;gt;left); } } }   迭代版本二
+void preorder_traversal(TreeNode *root) { stack&amp;lt;TreeNode *&amp;gt; s; TreeNode *node = root; while (node || !</description>
+    </item>
+    
+  </channel>
+</rss>
