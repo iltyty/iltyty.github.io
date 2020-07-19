@@ -2,7 +2,7 @@
 <html lang="zh-cn">
   <head>
   <meta charset="utf-8">
-<title>solution - 邱圆辉的博客</title>
+<title>BFS的两个解题模板 - 邱圆辉的博客</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
@@ -42,15 +42,27 @@ code.has-jax {
     color: #515151;
 }
 </style>
-<meta name="generator" content="Hugo 0.73.0" /><meta itemprop="name" content="solution">
-<meta itemprop="description" content=""><meta property="og:title" content="solution" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://chinwer.github.io/tags/solution/" />
-<meta property="og:updated_time" content="2020-07-19T00:00:00+00:00" />
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="solution"/>
-<meta name="twitter:description" content=""/>
+<meta name="generator" content="Hugo 0.73.0" /><meta itemprop="name" content="BFS的两个解题模板">
+<meta itemprop="description" content="BFS两个模板">
+<meta itemprop="datePublished" content="2020-07-18T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-07-18T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="82">
+<meta itemprop="image" content="http://47.94.16.255/images/images/2020/07/19/v2-73b8307b2db44c617f4e8515ce67dd39_1440w.jpg">
+
+
+
+<meta itemprop="keywords" content="leetcode,BFS,template," /><meta property="og:title" content="BFS的两个解题模板" />
+<meta property="og:description" content="BFS两个模板" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://chinwer.github.io/blog/bfs-template/" />
+<meta property="og:image" content="http://47.94.16.255/images/images/2020/07/19/v2-73b8307b2db44c617f4e8515ce67dd39_1440w.jpg" />
+<meta property="article:published_time" content="2020-07-18T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-07-18T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://47.94.16.255/images/images/2020/07/19/v2-73b8307b2db44c617f4e8515ce67dd39_1440w.jpg"/>
+
+<meta name="twitter:title" content="BFS的两个解题模板"/>
+<meta name="twitter:description" content="BFS两个模板"/>
 <meta name="twitter:site" content="@chinwerqiu"/>
 <link rel="stylesheet" href="/css/bundle.min.759e3848ea529eef056dab665b241e2af569e601ab80f68f8d4a4d002a155dd4.css" integrity="sha256-dZ44SOpSnu8FbatmWyQeKvVp5gGrgPaPjUpNACoVXdQ="><link rel="stylesheet" href="/css/add-on.css">
 </head>
@@ -64,7 +76,7 @@ code.has-jax {
       <a href="/" class="nav">
         
           
-            标签
+            博客
           
         
       </a>
@@ -166,37 +178,37 @@ code.has-jax {
 
   
     
-    <a href="//twitter.com/share?text=solution&amp;url=https%3a%2f%2fchinwer.github.io%2ftags%2fsolution%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+    <a href="//twitter.com/share?text=BFS%e7%9a%84%e4%b8%a4%e4%b8%aa%e8%a7%a3%e9%a2%98%e6%a8%a1%e6%9d%bf&amp;url=https%3a%2f%2fchinwer.github.io%2fblog%2fbfs-template%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
         <i class="fab fa-twitter"></i><p>&nbsp;Twitter</p>
       </a>
   
 
   
-      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fchinwer.github.io%2ftags%2fsolution%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fchinwer.github.io%2fblog%2fbfs-template%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
         <i class="fab fa-facebook"></i><p>&nbsp;Facebook</p>
         </a>
   
 
   
-    <a href="//www.reddit.com/submit?url=https%3a%2f%2fchinwer.github.io%2ftags%2fsolution%2f&amp;title=solution" target="_blank" rel="noopener" class="nav share-btn reddit">
+    <a href="//www.reddit.com/submit?url=https%3a%2f%2fchinwer.github.io%2fblog%2fbfs-template%2f&amp;title=BFS%e7%9a%84%e4%b8%a4%e4%b8%aa%e8%a7%a3%e9%a2%98%e6%a8%a1%e6%9d%bf" target="_blank" rel="noopener" class="nav share-btn reddit">
           <i class="fab fa-reddit-alien"></i><p>&nbsp;Reddit</p>
         </a>
   
 
   
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fchinwer.github.io%2ftags%2fsolution%2f&amp;title=solution" target="_blank" rel="noopener" class="nav share-btn linkedin">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fchinwer.github.io%2fblog%2fbfs-template%2f&amp;title=BFS%e7%9a%84%e4%b8%a4%e4%b8%aa%e8%a7%a3%e9%a2%98%e6%a8%a1%e6%9d%bf" target="_blank" rel="noopener" class="nav share-btn linkedin">
             <i class="fab fa-linkedin"></i><p>&nbsp;LinkedIn</p>
           </a>
   
 
   
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fchinwer.github.io%2ftags%2fsolution%2f&amp;description=solution" target="_blank" rel="noopener" class="nav share-btn pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fchinwer.github.io%2fblog%2fbfs-template%2f&amp;description=BFS%e7%9a%84%e4%b8%a4%e4%b8%aa%e8%a7%a3%e9%a2%98%e6%a8%a1%e6%9d%bf" target="_blank" rel="noopener" class="nav share-btn pinterest">
           <i class="fab fa-pinterest-p"></i><p>&nbsp;Pinterest</p>
         </a>
   
 
   
-        <a href="mailto:?subject=%e6%9f%a5%e7%9c%8b%e6%ad%a4%e5%b8%96%e5%ad%90%e7%9a%84%e4%bd%9c%e8%80%85 %7b%20%20%20%20%20%20%20%20map%5b%5d%7d&amp;body=https%3a%2f%2fchinwer.github.io%2ftags%2fsolution%2f" target="_blank" class="nav share-btn email" data-proofer-ignore>
+        <a href="mailto:?subject=%e6%9f%a5%e7%9c%8b%e6%ad%a4%e5%b8%96%e5%ad%90%e7%9a%84%e4%bd%9c%e8%80%85 %e9%82%b1%e5%9c%86%e8%be%89&amp;body=https%3a%2f%2fchinwer.github.io%2fblog%2fbfs-template%2f" target="_blank" class="nav share-btn email" data-proofer-ignore>
           <i class="fas fa-envelope"></i><p>&nbsp;Email</p>
         </a>
   
@@ -219,8 +231,6 @@ code.has-jax {
     <footer>
       <ul class="socnet-icons">
         
-    <li><a href="/tags/solution/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fas fa-rss"></a></li>
-
 
         <li><a href="//github.com/chinwer" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
 
@@ -271,145 +281,19 @@ code.has-jax {
 
       <main id="site-main">
         
-  
-  
-    <article class="post">
-  <header>
+  <article class="post">
+    <header>
   <div class="title">
     
-      <h2><a href="/blog/leetcode-105/">力扣总结：105. 从前序与中序遍历序列构造二叉树</a></h2>
+      <h2><a href="/blog/bfs-template/">BFS的两个解题模板</a></h2>
     
     
-      <p>第105题的几种思路</p>
+      <p>BFS两个模板</p>
     
   </div>
   <div class="meta">
-    <time class="published" datetime="2020-07-19 00:00:00 &#43;0000 UTC">
-      July 19, 2020
-    </time>
-    <span class="author">邱圆辉</span>
-    
-      <p>2 分钟</p>
-    
-  </div>
-</header>
-
-  
-  <a href="/blog/leetcode-105/" class="image featured">
-    
-      <img src="http://47.94.16.255/images/images/2020/07/19/smallccd6fce7874f4f9351ddf67c71ed45361594566515.jpg" alt="">
-    
-  </a>
-
-
-  
-  <p><a href="https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/">105. 从前序遍历与中序遍历序列构造二叉树</a></p>
-  <footer>
-    <a href="/blog/leetcode-105/" class="button big">阅读全文</a>
-    <ul class="stats">
-  <li class="categories">
-    <ul>
-    
-      <li>None</li>
-    
-    </ul>
-  </li>
-  <li class="tags">
-    <ul>
-    
-      
-        
-          <li><a class="article-terms-link" href="/tags/leetcode/">leetcode</a></li>
-        
-          <li><a class="article-terms-link" href="/tags/solution/">solution</a></li>
-        
-      
-    
-    </ul>
-  </li>
-</ul>
-
-  </footer>
-</article>
-
-  
-    <article class="post">
-  <header>
-  <div class="title">
-    
-      <h2><a href="/blog/leetcode-1248/">力扣总结：1248. 统计优美子数组</a></h2>
-    
-    
-      <p>力扣第1248题的两种思路</p>
-    
-  </div>
-  <div class="meta">
-    <time class="published" datetime="2020-07-13 00:00:00 &#43;0000 UTC">
-      July 13, 2020
-    </time>
-    <span class="author">邱圆辉</span>
-    
-      <p>2 分钟</p>
-    
-  </div>
-</header>
-
-  
-  <a href="/blog/leetcode-1248/" class="image featured">
-    
-      <img src="http://47.94.16.255/images/content/images/users/Vk3/bkg_1594585280.jpg" alt="">
-    
-  </a>
-
-
-  
-  <p>思路和算法</p>
-  <footer>
-    <a href="/blog/leetcode-1248/" class="button big">阅读全文</a>
-    <ul class="stats">
-  <li class="categories">
-    <ul>
-    
-      <li>None</li>
-    
-    </ul>
-  </li>
-  <li class="tags">
-    <ul>
-    
-      
-        
-          <li><a class="article-terms-link" href="/tags/leetcode/">leetcode</a></li>
-        
-          <li><a class="article-terms-link" href="/tags/solution/">solution</a></li>
-        
-          <li><a class="article-terms-link" href="/tags/algorithm/">algorithm</a></li>
-        
-          <li><a class="article-terms-link" href="/tags/two-pointers/">two-pointers</a></li>
-        
-      
-    
-    </ul>
-  </li>
-</ul>
-
-  </footer>
-</article>
-
-  
-    <article class="post">
-  <header>
-  <div class="title">
-    
-      <h2><a href="/blog/leetcode-5/">力扣总结：5. 最长回文子串</a></h2>
-    
-    
-      <p>第五题的两种思路</p>
-    
-  </div>
-  <div class="meta">
-    <time class="published" datetime="2020-07-13 00:00:00 &#43;0000 UTC">
-      July 13, 2020
+    <time class="published" datetime="2020-07-18 00:00:00 &#43;0000 UTC">
+      July 18, 2020
     </time>
     <span class="author">邱圆辉</span>
     
@@ -418,19 +302,107 @@ code.has-jax {
   </div>
 </header>
 
+    <section id="socnet-share">
+      
+
+
+
+
   
-  <a href="/blog/leetcode-5/" class="image featured">
     
-      <img src="http://47.94.16.255/images/images/2020/07/13/star1.jpg" alt="">
+    <a href="//twitter.com/share?text=BFS%e7%9a%84%e4%b8%a4%e4%b8%aa%e8%a7%a3%e9%a2%98%e6%a8%a1%e6%9d%bf&amp;url=https%3a%2f%2fchinwer.github.io%2fblog%2fbfs-template%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+        <i class="fab fa-twitter"></i><p>&nbsp;Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fchinwer.github.io%2fblog%2fbfs-template%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
+        <i class="fab fa-facebook"></i><p>&nbsp;Facebook</p>
+        </a>
+  
+
+  
+    <a href="//www.reddit.com/submit?url=https%3a%2f%2fchinwer.github.io%2fblog%2fbfs-template%2f&amp;title=BFS%e7%9a%84%e4%b8%a4%e4%b8%aa%e8%a7%a3%e9%a2%98%e6%a8%a1%e6%9d%bf" target="_blank" rel="noopener" class="nav share-btn reddit">
+          <i class="fab fa-reddit-alien"></i><p>&nbsp;Reddit</p>
+        </a>
+  
+
+  
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fchinwer.github.io%2fblog%2fbfs-template%2f&amp;title=BFS%e7%9a%84%e4%b8%a4%e4%b8%aa%e8%a7%a3%e9%a2%98%e6%a8%a1%e6%9d%bf" target="_blank" rel="noopener" class="nav share-btn linkedin">
+            <i class="fab fa-linkedin"></i><p>&nbsp;LinkedIn</p>
+          </a>
+  
+
+  
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fchinwer.github.io%2fblog%2fbfs-template%2f&amp;description=BFS%e7%9a%84%e4%b8%a4%e4%b8%aa%e8%a7%a3%e9%a2%98%e6%a8%a1%e6%9d%bf" target="_blank" rel="noopener" class="nav share-btn pinterest">
+          <i class="fab fa-pinterest-p"></i><p>&nbsp;Pinterest</p>
+        </a>
+  
+
+  
+        <a href="mailto:?subject=%e6%9f%a5%e7%9c%8b%e6%ad%a4%e5%b8%96%e5%ad%90%e7%9a%84%e4%bd%9c%e8%80%85 %e9%82%b1%e5%9c%86%e8%be%89&amp;body=https%3a%2f%2fchinwer.github.io%2fblog%2fbfs-template%2f" target="_blank" class="nav share-btn email" data-proofer-ignore>
+          <i class="fas fa-envelope"></i><p>&nbsp;Email</p>
+        </a>
+  
+
+
+    </section>
+    
+  <a href="/blog/bfs-template/" class="image featured">
+    
+      <img src="http://47.94.16.255/images/images/2020/07/19/v2-73b8307b2db44c617f4e8515ce67dd39_1440w.jpg" alt="">
     
   </a>
 
 
-  
-  <p>给定一个字符串 $s$ ，找到 $s$ 中最长的回文子串。你可以假设 $s$ 的最大长度为1000</p>
-  <footer>
-    <a href="/blog/leetcode-5/" class="button big">阅读全文</a>
-    <ul class="stats">
+    <div class="content">
+      <h3 id="bfs模板">BFS模板</h3>
+<p>BFS使用队列，将每个目前未搜索的结点依次入队，然后弹出队列首部元素进行遍历，一般有两个模板：</p>
+<ul>
+<li>
+<p>不需要确定当前遍历到了哪一层</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">while</span> (<span style="color:#f92672">!</span>queue.empty()) {
+    cur <span style="color:#f92672">=</span> queue.front();
+    queue.pop();
+    <span style="color:#66d9ef">for</span> (node : adjacents_of(cur)) {
+        <span style="color:#66d9ef">if</span> (node is valid <span style="color:#f92672">&amp;&amp;</span> has not been accessed) {
+            queue.push(node)
+        }
+    }
+}
+</code></pre></div><p>力扣中用到此模板的常见题目有：</p>
+<ul>
+<li><a href="https://leetcode-cn.com/problems/binary-tree-level-order-traversal/">二叉树的层序遍历</a></li>
+<li><a href="https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/">二叉树的最大深度</a></li>
+</ul>
+</li>
+<li>
+<p>需要确定当前遍历到了哪一层</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">int</span> level <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+<span style="color:#66d9ef">while</span> (<span style="color:#f92672">!</span>queue.empty()) {
+    <span style="color:#66d9ef">int</span> size <span style="color:#f92672">=</span> queue.size();
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> size; i<span style="color:#f92672">++</span>) {
+        cur <span style="color:#f92672">=</span> queue.front();
+        queue.pop();
+        <span style="color:#66d9ef">for</span> (node : adjacents_of(cur)) {
+            <span style="color:#66d9ef">if</span> (node is valid <span style="color:#f92672">&amp;&amp;</span> has not been accessed) {
+                queue.push(node);
+            }
+        }
+    }
+    level<span style="color:#f92672">++</span>;
+}
+</code></pre></div><p>力扣中用到此模板的常见题目有：</p>
+<ul>
+<li><a href="https://leetcode-cn.com/problems/symmetric-tree/">对称二叉树</a></li>
+<li><a href="https://leetcode-cn.com/submissions/detail/89155933/">路径总和</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+    <footer>
+      <ul class="stats">
   <li class="categories">
     <ul>
     
@@ -445,7 +417,9 @@ code.has-jax {
         
           <li><a class="article-terms-link" href="/tags/leetcode/">leetcode</a></li>
         
-          <li><a class="article-terms-link" href="/tags/solution/">solution</a></li>
+          <li><a class="article-terms-link" href="/tags/bfs/">BFS</a></li>
+        
+          <li><a class="article-terms-link" href="/tags/template/">template</a></li>
         
       
     
@@ -453,13 +427,67 @@ code.has-jax {
   </li>
 </ul>
 
-  </footer>
-</article>
+    </footer>
+  </article>
+  
+  <article class="post">
+    
+<div>
+  <h2>说些什么</h2>
+    <form id="post-js-form" class="post-new-comment" method="POST">
+      
+      <h5 class='post-reply-notice hidden'>
+        <span class='post-reply-arrow'></span><span class='post-reply-name'></span>
+      </h5>
+
+      
+      <input type="hidden" name="options[entryId]" value="86c203f44e237b4ed6dedca3f06b80e1">
+      <input type='hidden' name='fields[replyThread]' value=''>
+      <input type='hidden' name='fields[replyID]' value=''>
+      <input type='hidden' name='fields[replyName]' value=''>
+
+      
+      <input required name='fields[name]' type='text' placeholder='您的名字（必填）'>
+      <input name='fields[website]' type='text' placeholder='您的网站'>
+      <input required name='fields[email]' type='email' placeholder='您的电邮地址（必填，用于 Gravatar 头象）'>
+      <textarea required name='fields[body]' placeholder='您的留言。可使用 Markdown。（搜索 &#39;Markdown 語法速查&#39;）' rows='10'></textarea>
+
+      
+      
+
+      
+      <p class='post-submit-notice'>
+        <strong class='post-submit-notice-text submit-success hidden'>感谢您的评论！被批准后它会立即在此站点展示。</strong>
+        <strong class='post-submit-notice-text submit-failed hidden'>很抱歉，您的提交存在错误。请确保所有必填字段都已填写正确，然后再试一次。</strong>
+      </p>
+
+      
+      <input type='submit' value='送出' class='button'>
+      <input type='submit' value='已送出' class='hidden button' disabled>
+      <input type='reset' value='重设' class='button'>
+    </form>
+</div>
+
+
+<div>
+  <h2>评论</h2>
 
   
+    
+      <p>还沒有留言。</p>
+    
   
-<div class="pagination">
+</div>
+
+  </article>
+
+
+  <div class="pagination">
   
+    <a href="/blog/binary-tree-traversal/" class="button"><div class="previous"><div>二叉树的几种遍历方式总结</div></div></a>
+  
+  
+    <a href="/blog/leetcode-105/" class="button"><div class="next"><div>力扣总结：105. 从前序与中序遍历序列构造二叉树</div></div></a>
   
 </div>
 
@@ -609,8 +637,6 @@ code.has-jax {
   
       <ul class="socnet-icons">
         
-    <li><a href="/tags/solution/index.xml" type="application/rss+xml" target="_blank" title="RSS" class="fas fa-rss"></a></li>
-
 
         <li><a href="//github.com/chinwer" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
 

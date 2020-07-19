@@ -6,10 +6,37 @@
     <description>Recent content in Tags on 邱圆辉的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 18 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://chinwer.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>leetcode</title>
+      <link>https://chinwer.github.io/tags/leetcode/</link>
+      <pubDate>Sun, 19 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://chinwer.github.io/tags/leetcode/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>solution</title>
+      <link>https://chinwer.github.io/tags/solution/</link>
+      <pubDate>Sun, 19 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://chinwer.github.io/tags/solution/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>BFS</title>
+      <link>https://chinwer.github.io/tags/bfs/</link>
+      <pubDate>Sat, 18 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://chinwer.github.io/tags/bfs/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>binary tree</title>
@@ -17,6 +44,15 @@
       <pubDate>Sat, 18 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>https://chinwer.github.io/tags/binary-tree/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>template</title>
+      <link>https://chinwer.github.io/tags/template/</link>
+      <pubDate>Sat, 18 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://chinwer.github.io/tags/template/</guid>
       <description></description>
     </item>
     
@@ -44,24 +80,6 @@
       <pubDate>Mon, 13 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>https://chinwer.github.io/tags/image-hosting/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>leetcode</title>
-      <link>https://chinwer.github.io/tags/leetcode/</link>
-      <pubDate>Mon, 13 Jul 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://chinwer.github.io/tags/leetcode/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>solution</title>
-      <link>https://chinwer.github.io/tags/solution/</link>
-      <pubDate>Mon, 13 Jul 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://chinwer.github.io/tags/solution/</guid>
       <description></description>
     </item>
     

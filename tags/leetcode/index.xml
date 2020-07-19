@@ -6,10 +6,41 @@
     <description>Recent content in leetcode on 邱圆辉的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 13 Jul 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://chinwer.github.io/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>力扣总结：105. 从前序与中序遍历序列构造二叉树</title>
+      <link>https://chinwer.github.io/blog/leetcode-105/</link>
+      <pubDate>Sun, 19 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://chinwer.github.io/blog/leetcode-105/</guid>
+      <description>题目链接 105. 从前序遍历与中序遍历序列构造二叉树
+题目要求 根据一棵树的前序遍历与中序遍历构造二叉树，你可以假设树中没有重复元素。
+思路   递归版本
+  核心思路
+  $preorder$ 前序遍历序列的第一项肯定是根节点：[根 | 左 | 右]；
+  根据根节点在 $inorder$ 中序遍历序列中的位置，将其分割为 [左 | 根 | 右] 三个部分；
+  通过 $inorder$ 中确定的左右子树的结点个数，在 $preorder$ 中确定左右子树的序列；
+  对左右子树，递归重复上述操作。
+    c++代码
+struct TreeNode { int val; TreeNode *left; TreeNode *right; TreeNode(int x) : val(x), left(NULL), right(NULL) {} }; class Solution { public: TreeNode* buildTree(vector&amp;lt;int&amp;gt;&amp;amp; preorder, vector&amp;lt;int&amp;gt;&amp;amp; inorder) { map&amp;lt;int, int&amp;gt; pos; int presize = preorder.</description>
+    </item>
+    
+    <item>
+      <title>BFS的两个解题模板</title>
+      <link>https://chinwer.github.io/blog/bfs-template/</link>
+      <pubDate>Sat, 18 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://chinwer.github.io/blog/bfs-template/</guid>
+      <description>BFS模板 BFS使用队列，将每个目前未搜索的结点依次入队，然后弹出队列首部元素进行遍历，一般有两个模板：
+  不需要确定当前遍历到了哪一层
+while (!queue.empty()) { cur = queue.front(); queue.pop(); for (node : adjacents_of(cur)) { if (node is valid &amp;amp;&amp;amp; has not been accessed) { queue.push(node) } } } 力扣中用到此模板的常见题目有：
+ 二叉树的层序遍历 二叉树的最大深度    需要确定当前遍历到了哪一层
+int level = 0; while (!queue.empty()) { int size = queue.size(); for (int i = 0; i &amp;lt; size; i++) { cur = queue.front(); queue.pop(); for (node : adjacents_of(cur)) { if (node is valid &amp;amp;&amp;amp; has not been accessed) { queue.</description>
+    </item>
     
     <item>
       <title>力扣总结：1248. 统计优美子数组</title>
