@@ -20,7 +20,7 @@
       <description>BFS模板 BFS使用队列，将每个目前未搜索的结点依次入队，然后弹出队列首部元素进行遍历，一般有两个模板：
   不需要确定当前遍历到了哪一层
 while (!queue.empty()) { cur = queue.front(); queue.pop(); for (node : adjacents_of(cur)) { if (node is valid &amp;amp;&amp;amp; has not been accessed) { queue.push(node) } } } 力扣中用到此模板的常见题目有：
- 二叉树的层序遍历 二叉树的最大深度    需要确定当前遍历到了哪一层
+ 二叉树的最大深度    需要确定当前遍历到了哪一层
 int level = 0; while (!queue.empty()) { int size = queue.size(); for (int i = 0; i &amp;lt; size; i++) { cur = queue.front(); queue.pop(); for (node : adjacents_of(cur)) { if (node is valid &amp;amp;&amp;amp; has not been accessed) { queue.</description>
     </item>
     

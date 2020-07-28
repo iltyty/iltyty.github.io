@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>array on 邱圆辉的博客</title>
+    <link>https://chinwer.github.io/tags/array/</link>
+    <description>Recent content in array on 邱圆辉的博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 25 Jul 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://chinwer.github.io/tags/array/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>斜向遍历二维数组 </title>
+      <link>https://chinwer.github.io/blog/two-dimension-array-oblique-traversal/</link>
+      <pubDate>Sat, 25 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://chinwer.github.io/blog/two-dimension-array-oblique-traversal/</guid>
+      <description>在动态规划中有时会需要斜着遍历二维数组，在这里用c++简单记录一下遍历的代码：
+vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; dp(n, vector(n, 0)); for (int l = 2; l &amp;lt;= n; l++) { for (int i = 0; i &amp;lt; n; i++) { int j = l + i - 1; /* Visit dp[i][j] */ } } </description>
+    </item>
+    
+  </channel>
+</rss>
