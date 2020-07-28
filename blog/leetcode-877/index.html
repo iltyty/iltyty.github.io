@@ -2,7 +2,7 @@
 <html lang="zh-cn">
   <head>
   <meta charset="utf-8">
-<title>力扣总结877：石子游戏 - 邱圆辉的博客</title>
+<title>力扣总结：877. 石子游戏 - 邱圆辉的博客</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
@@ -42,7 +42,7 @@ code.has-jax {
     color: #515151;
 }
 </style>
-<meta name="generator" content="Hugo 0.73.0" /><meta itemprop="name" content="力扣总结877：石子游戏">
+<meta name="generator" content="Hugo 0.73.0" /><meta itemprop="name" content="力扣总结：877. 石子游戏">
 <meta itemprop="description" content="第877题的几种思路">
 <meta itemprop="datePublished" content="2020-07-28T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-07-28T00:00:00&#43;00:00" />
@@ -51,7 +51,7 @@ code.has-jax {
 
 
 
-<meta itemprop="keywords" content="leetcode,solution," /><meta property="og:title" content="力扣总结877：石子游戏" />
+<meta itemprop="keywords" content="leetcode,solution," /><meta property="og:title" content="力扣总结：877. 石子游戏" />
 <meta property="og:description" content="第877题的几种思路" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://chinwer.github.io/blog/leetcode-877/" />
@@ -61,7 +61,7 @@ code.has-jax {
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="http://47.94.16.255/images/images/2020/07/19/ed93cb4a546971f4dfaaf31666dfb8b1_1440w.jpg"/>
 
-<meta name="twitter:title" content="力扣总结877：石子游戏"/>
+<meta name="twitter:title" content="力扣总结：877. 石子游戏"/>
 <meta name="twitter:description" content="第877题的几种思路"/>
 <meta name="twitter:site" content="@chinwerqiu"/>
 <link rel="stylesheet" href="/css/bundle.min.759e3848ea529eef056dab665b241e2af569e601ab80f68f8d4a4d002a155dd4.css" integrity="sha256-dZ44SOpSnu8FbatmWyQeKvVp5gGrgPaPjUpNACoVXdQ="><link rel="stylesheet" href="/css/add-on.css">
@@ -178,7 +178,7 @@ code.has-jax {
 
   
     
-    <a href="//twitter.com/share?text=%e5%8a%9b%e6%89%a3%e6%80%bb%e7%bb%93877%ef%bc%9a%e7%9f%b3%e5%ad%90%e6%b8%b8%e6%88%8f&amp;url=https%3a%2f%2fchinwer.github.io%2fblog%2fleetcode-877%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+    <a href="//twitter.com/share?text=%e5%8a%9b%e6%89%a3%e6%80%bb%e7%bb%93%ef%bc%9a877.%20%e7%9f%b3%e5%ad%90%e6%b8%b8%e6%88%8f&amp;url=https%3a%2f%2fchinwer.github.io%2fblog%2fleetcode-877%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
         <i class="fab fa-twitter"></i><p>&nbsp;Twitter</p>
       </a>
   
@@ -190,19 +190,19 @@ code.has-jax {
   
 
   
-    <a href="//www.reddit.com/submit?url=https%3a%2f%2fchinwer.github.io%2fblog%2fleetcode-877%2f&amp;title=%e5%8a%9b%e6%89%a3%e6%80%bb%e7%bb%93877%ef%bc%9a%e7%9f%b3%e5%ad%90%e6%b8%b8%e6%88%8f" target="_blank" rel="noopener" class="nav share-btn reddit">
+    <a href="//www.reddit.com/submit?url=https%3a%2f%2fchinwer.github.io%2fblog%2fleetcode-877%2f&amp;title=%e5%8a%9b%e6%89%a3%e6%80%bb%e7%bb%93%ef%bc%9a877.%20%e7%9f%b3%e5%ad%90%e6%b8%b8%e6%88%8f" target="_blank" rel="noopener" class="nav share-btn reddit">
           <i class="fab fa-reddit-alien"></i><p>&nbsp;Reddit</p>
         </a>
   
 
   
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fchinwer.github.io%2fblog%2fleetcode-877%2f&amp;title=%e5%8a%9b%e6%89%a3%e6%80%bb%e7%bb%93877%ef%bc%9a%e7%9f%b3%e5%ad%90%e6%b8%b8%e6%88%8f" target="_blank" rel="noopener" class="nav share-btn linkedin">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fchinwer.github.io%2fblog%2fleetcode-877%2f&amp;title=%e5%8a%9b%e6%89%a3%e6%80%bb%e7%bb%93%ef%bc%9a877.%20%e7%9f%b3%e5%ad%90%e6%b8%b8%e6%88%8f" target="_blank" rel="noopener" class="nav share-btn linkedin">
             <i class="fab fa-linkedin"></i><p>&nbsp;LinkedIn</p>
           </a>
   
 
   
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fchinwer.github.io%2fblog%2fleetcode-877%2f&amp;description=%e5%8a%9b%e6%89%a3%e6%80%bb%e7%bb%93877%ef%bc%9a%e7%9f%b3%e5%ad%90%e6%b8%b8%e6%88%8f" target="_blank" rel="noopener" class="nav share-btn pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fchinwer.github.io%2fblog%2fleetcode-877%2f&amp;description=%e5%8a%9b%e6%89%a3%e6%80%bb%e7%bb%93%ef%bc%9a877.%20%e7%9f%b3%e5%ad%90%e6%b8%b8%e6%88%8f" target="_blank" rel="noopener" class="nav share-btn pinterest">
           <i class="fab fa-pinterest-p"></i><p>&nbsp;Pinterest</p>
         </a>
   
@@ -285,7 +285,7 @@ code.has-jax {
     <header>
   <div class="title">
     
-      <h2><a href="/blog/leetcode-877/">力扣总结877：石子游戏</a></h2>
+      <h2><a href="/blog/leetcode-877/">力扣总结：877. 石子游戏</a></h2>
     
     
       <p>第877题的几种思路</p>
@@ -310,7 +310,7 @@ code.has-jax {
 
   
     
-    <a href="//twitter.com/share?text=%e5%8a%9b%e6%89%a3%e6%80%bb%e7%bb%93877%ef%bc%9a%e7%9f%b3%e5%ad%90%e6%b8%b8%e6%88%8f&amp;url=https%3a%2f%2fchinwer.github.io%2fblog%2fleetcode-877%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+    <a href="//twitter.com/share?text=%e5%8a%9b%e6%89%a3%e6%80%bb%e7%bb%93%ef%bc%9a877.%20%e7%9f%b3%e5%ad%90%e6%b8%b8%e6%88%8f&amp;url=https%3a%2f%2fchinwer.github.io%2fblog%2fleetcode-877%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
         <i class="fab fa-twitter"></i><p>&nbsp;Twitter</p>
       </a>
   
@@ -322,19 +322,19 @@ code.has-jax {
   
 
   
-    <a href="//www.reddit.com/submit?url=https%3a%2f%2fchinwer.github.io%2fblog%2fleetcode-877%2f&amp;title=%e5%8a%9b%e6%89%a3%e6%80%bb%e7%bb%93877%ef%bc%9a%e7%9f%b3%e5%ad%90%e6%b8%b8%e6%88%8f" target="_blank" rel="noopener" class="nav share-btn reddit">
+    <a href="//www.reddit.com/submit?url=https%3a%2f%2fchinwer.github.io%2fblog%2fleetcode-877%2f&amp;title=%e5%8a%9b%e6%89%a3%e6%80%bb%e7%bb%93%ef%bc%9a877.%20%e7%9f%b3%e5%ad%90%e6%b8%b8%e6%88%8f" target="_blank" rel="noopener" class="nav share-btn reddit">
           <i class="fab fa-reddit-alien"></i><p>&nbsp;Reddit</p>
         </a>
   
 
   
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fchinwer.github.io%2fblog%2fleetcode-877%2f&amp;title=%e5%8a%9b%e6%89%a3%e6%80%bb%e7%bb%93877%ef%bc%9a%e7%9f%b3%e5%ad%90%e6%b8%b8%e6%88%8f" target="_blank" rel="noopener" class="nav share-btn linkedin">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fchinwer.github.io%2fblog%2fleetcode-877%2f&amp;title=%e5%8a%9b%e6%89%a3%e6%80%bb%e7%bb%93%ef%bc%9a877.%20%e7%9f%b3%e5%ad%90%e6%b8%b8%e6%88%8f" target="_blank" rel="noopener" class="nav share-btn linkedin">
             <i class="fab fa-linkedin"></i><p>&nbsp;LinkedIn</p>
           </a>
   
 
   
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fchinwer.github.io%2fblog%2fleetcode-877%2f&amp;description=%e5%8a%9b%e6%89%a3%e6%80%bb%e7%bb%93877%ef%bc%9a%e7%9f%b3%e5%ad%90%e6%b8%b8%e6%88%8f" target="_blank" rel="noopener" class="nav share-btn pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fchinwer.github.io%2fblog%2fleetcode-877%2f&amp;description=%e5%8a%9b%e6%89%a3%e6%80%bb%e7%bb%93%ef%bc%9a877.%20%e7%9f%b3%e5%ad%90%e6%b8%b8%e6%88%8f" target="_blank" rel="noopener" class="nav share-btn pinterest">
           <i class="fab fa-pinterest-p"></i><p>&nbsp;Pinterest</p>
         </a>
   
@@ -561,6 +561,8 @@ dp[i][i].second <span style="color:#f92672">=</span> <span style="color:#ae81ff"
     <a href="/blog/two-dimension-array-oblique-traversal/" class="button"><div class="previous"><div>斜向遍历二维数组 </div></div></a>
   
   
+    <a href="/blog/leetcode-1140/" class="button"><div class="next"><div>力扣总结：1140. 石子游戏 II</div></div></a>
+  
 </div>
 
 
@@ -575,6 +577,23 @@ dp[i][i].second <span style="color:#f92672">=</span> <span style="color:#ae81ff"
       <article class="mini-post">
         <section>
           
+  <a href="/blog/leetcode-1140/" class="image featured">
+    
+      <img src="http://47.94.16.255/images/images/2020/07/19/ed93cb4a546971f4dfaaf31666dfb8b1_1440w.jpg" alt="">
+    
+  </a>
+
+
+        </section>
+        <header>
+          <h2><a href="/blog/leetcode-1140/">力扣总结：1140. 石子游戏 II</a></h2>
+          <time class="published" datetime="">July 28, 2020</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+        <section>
+          
   <a href="/blog/leetcode-877/" class="image featured">
     
       <img src="http://47.94.16.255/images/images/2020/07/19/ed93cb4a546971f4dfaaf31666dfb8b1_1440w.jpg" alt="">
@@ -584,7 +603,7 @@ dp[i][i].second <span style="color:#f92672">=</span> <span style="color:#ae81ff"
 
         </section>
         <header>
-          <h2><a href="/blog/leetcode-877/">力扣总结877：石子游戏</a></h2>
+          <h2><a href="/blog/leetcode-877/">力扣总结：877. 石子游戏</a></h2>
           <time class="published" datetime="">July 28, 2020</time>
         </header>
       </article>
@@ -636,23 +655,6 @@ dp[i][i].second <span style="color:#f92672">=</span> <span style="color:#ae81ff"
         </section>
         <header>
           <h2><a href="/blog/bfs-template/">BFS的两个解题模板</a></h2>
-          <time class="published" datetime="">July 18, 2020</time>
-        </header>
-      </article>
-      
-      <article class="mini-post">
-        <section>
-          
-  <a href="/blog/binary-tree-traversal/" class="image featured">
-    
-      <img src="http://47.94.16.255/images/images/2020/07/18/elf.jpg" alt="">
-    
-  </a>
-
-
-        </section>
-        <header>
-          <h2><a href="/blog/binary-tree-traversal/">二叉树的几种遍历方式总结</a></h2>
           <time class="published" datetime="">July 18, 2020</time>
         </header>
       </article>
