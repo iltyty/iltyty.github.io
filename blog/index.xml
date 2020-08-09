@@ -6,10 +6,32 @@
     <description>Recent content in Blog on 邱圆辉的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 02 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 09 Aug 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://chinwer.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>几个矩阵有关的题</title>
+      <link>https://chinwer.github.io/blog/leetcode-matrix/</link>
+      <pubDate>Sun, 09 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://chinwer.github.io/blog/leetcode-matrix/</guid>
+      <description>第1139题 题目链接 1139. 最大的以1为边界的正方形
+题目描述 给你一个由若干 0 和 1 组成的二维网格 grid，请你找出边界全部由 1 组成的最大 正方形 子网格，并返回该子网格中的元素数量。如果不存在，则返回 0。
+示例 输入：grid = [[1,1,1],[1,0,1],[1,1,1]]输出：9输入：grid = [[1, 1, 0, 0]]输出：1思路 DP数组的定义
+dp[i][j][0]: i,j左边连续的1的个数（包括自身）dp[i][j][1]: i,j上边连续的1的个数（包括自身）思路来自于题解 Java动态规划。
+c++代码 class Solution { public: int largest1BorderedSquare(vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt;&amp;amp; grid) { if (grid.empty()) { return 0; } int res = 0; int m = grid.size(); int n = grid[0].size(); vector&amp;lt;vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt;&amp;gt; dp(m + 1, vector(n + 1, vector(2, 0))); for (int i = 1; i &amp;lt;= m; i++) { for (int j = 1; j &amp;lt;= n; j++) { if (grid[i - 1][j - 1]) { dp[i][j][0] = dp[i][j - 1][0] + 1; dp[i][j][1] = dp[i - 1][j][1] + 1; int len = min(dp[i][j][0], dp[i][j][1]); while (len &amp;gt; res) { if (dp[i - len + 1][j][0] &amp;gt;= len &amp;amp;&amp;amp; dp[i][j - len + 1][1] &amp;gt;= len) { break; } len--; } res = max(res, len); } } } return res * res; } }; 几个注意点 写一下做了几个与这个类似的题之后，我的一些个人总结。</description>
+    </item>
+    
+    <item>
+      <title>前缀和模板</title>
+      <link>https://chinwer.github.io/blog/prefix-sum/</link>
+      <pubDate>Sat, 08 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://chinwer.github.io/blog/prefix-sum/</guid>
+      <description>一维前缀和 vector&amp;lt;int&amp;gt; one_dimension_prefix(vector&amp;lt;int&amp;gt; nums) { int n = nums.size(); vector&amp;lt;int&amp;gt; prefix(n + 1); for (int i = 1; i &amp;lt;= n; i++) { prefix[i] = prefix[i - 1] + nums[i - 1]; } return prefix; } 二维前缀和 vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; two_dimension_prefix(vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; nums) { int m = nums.size(); int n = nums[0].size(); vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; prefix(m + 1, vector(n + 1, 0)); for (int i = 1; i &amp;lt;= m; i++) { for (int j = 1; j &amp;lt;= n; j++) { prefix[i][j] = nums[i][j] + prefix[i - 1][j] + prefix[i][j - 1] - prefix[i - 1][j - 1]; } } return prefix; } </description>
+    </item>
     
     <item>
       <title>力扣总结：1372. 二叉树的最长交错路径</title>

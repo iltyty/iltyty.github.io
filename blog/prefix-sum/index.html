@@ -2,7 +2,7 @@
 <html lang="zh-cn">
   <head>
   <meta charset="utf-8">
-<title>斜向遍历二维数组  - 邱圆辉的博客</title>
+<title>前缀和模板 - 邱圆辉的博客</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
@@ -42,27 +42,27 @@ code.has-jax {
     color: #515151;
 }
 </style>
-<meta name="generator" content="Hugo 0.73.0" /><meta itemprop="name" content="斜向遍历二维数组 ">
-<meta itemprop="description" content="斜向遍历二维数组的代码框架">
-<meta itemprop="datePublished" content="2020-07-25T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-07-25T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="39">
-<meta itemprop="image" content="http://47.94.16.255/images/images/2020/07/19/v2-1d69c904759f7e5085873840922dba35_1440w.jpg">
+<meta name="generator" content="Hugo 0.73.0" /><meta itemprop="name" content="前缀和模板">
+<meta itemprop="description" content="一维前缀和以及二维前缀和的代码模板">
+<meta itemprop="datePublished" content="2020-08-08T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-08-08T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="99">
+<meta itemprop="image" content="http://47.94.16.255/images/images/2020/08/09/ocean-3605547_1280.jpg">
 
 
 
-<meta itemprop="keywords" content="array,traversal," /><meta property="og:title" content="斜向遍历二维数组 " />
-<meta property="og:description" content="斜向遍历二维数组的代码框架" />
+<meta itemprop="keywords" content="leetcode,solution," /><meta property="og:title" content="前缀和模板" />
+<meta property="og:description" content="一维前缀和以及二维前缀和的代码模板" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://chinwer.github.io/blog/two-dimension-array-oblique-traversal/" />
-<meta property="og:image" content="http://47.94.16.255/images/images/2020/07/19/v2-1d69c904759f7e5085873840922dba35_1440w.jpg" />
-<meta property="article:published_time" content="2020-07-25T00:00:00+00:00" />
-<meta property="article:modified_time" content="2020-07-25T00:00:00+00:00" />
+<meta property="og:url" content="https://chinwer.github.io/blog/prefix-sum/" />
+<meta property="og:image" content="http://47.94.16.255/images/images/2020/08/09/ocean-3605547_1280.jpg" />
+<meta property="article:published_time" content="2020-08-08T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-08-08T00:00:00+00:00" />
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="http://47.94.16.255/images/images/2020/07/19/v2-1d69c904759f7e5085873840922dba35_1440w.jpg"/>
+<meta name="twitter:image" content="http://47.94.16.255/images/images/2020/08/09/ocean-3605547_1280.jpg"/>
 
-<meta name="twitter:title" content="斜向遍历二维数组 "/>
-<meta name="twitter:description" content="斜向遍历二维数组的代码框架"/>
+<meta name="twitter:title" content="前缀和模板"/>
+<meta name="twitter:description" content="一维前缀和以及二维前缀和的代码模板"/>
 <meta name="twitter:site" content="@chinwerqiu"/>
 <link rel="stylesheet" href="/css/bundle.min.759e3848ea529eef056dab665b241e2af569e601ab80f68f8d4a4d002a155dd4.css" integrity="sha256-dZ44SOpSnu8FbatmWyQeKvVp5gGrgPaPjUpNACoVXdQ="><link rel="stylesheet" href="/css/add-on.css">
 </head>
@@ -178,37 +178,37 @@ code.has-jax {
 
   
     
-    <a href="//twitter.com/share?text=%e6%96%9c%e5%90%91%e9%81%8d%e5%8e%86%e4%ba%8c%e7%bb%b4%e6%95%b0%e7%bb%84%20&amp;url=https%3a%2f%2fchinwer.github.io%2fblog%2ftwo-dimension-array-oblique-traversal%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+    <a href="//twitter.com/share?text=%e5%89%8d%e7%bc%80%e5%92%8c%e6%a8%a1%e6%9d%bf&amp;url=https%3a%2f%2fchinwer.github.io%2fblog%2fprefix-sum%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
         <i class="fab fa-twitter"></i><p>&nbsp;Twitter</p>
       </a>
   
 
   
-      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fchinwer.github.io%2fblog%2ftwo-dimension-array-oblique-traversal%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fchinwer.github.io%2fblog%2fprefix-sum%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
         <i class="fab fa-facebook"></i><p>&nbsp;Facebook</p>
         </a>
   
 
   
-    <a href="//www.reddit.com/submit?url=https%3a%2f%2fchinwer.github.io%2fblog%2ftwo-dimension-array-oblique-traversal%2f&amp;title=%e6%96%9c%e5%90%91%e9%81%8d%e5%8e%86%e4%ba%8c%e7%bb%b4%e6%95%b0%e7%bb%84%20" target="_blank" rel="noopener" class="nav share-btn reddit">
+    <a href="//www.reddit.com/submit?url=https%3a%2f%2fchinwer.github.io%2fblog%2fprefix-sum%2f&amp;title=%e5%89%8d%e7%bc%80%e5%92%8c%e6%a8%a1%e6%9d%bf" target="_blank" rel="noopener" class="nav share-btn reddit">
           <i class="fab fa-reddit-alien"></i><p>&nbsp;Reddit</p>
         </a>
   
 
   
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fchinwer.github.io%2fblog%2ftwo-dimension-array-oblique-traversal%2f&amp;title=%e6%96%9c%e5%90%91%e9%81%8d%e5%8e%86%e4%ba%8c%e7%bb%b4%e6%95%b0%e7%bb%84%20" target="_blank" rel="noopener" class="nav share-btn linkedin">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fchinwer.github.io%2fblog%2fprefix-sum%2f&amp;title=%e5%89%8d%e7%bc%80%e5%92%8c%e6%a8%a1%e6%9d%bf" target="_blank" rel="noopener" class="nav share-btn linkedin">
             <i class="fab fa-linkedin"></i><p>&nbsp;LinkedIn</p>
           </a>
   
 
   
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fchinwer.github.io%2fblog%2ftwo-dimension-array-oblique-traversal%2f&amp;description=%e6%96%9c%e5%90%91%e9%81%8d%e5%8e%86%e4%ba%8c%e7%bb%b4%e6%95%b0%e7%bb%84%20" target="_blank" rel="noopener" class="nav share-btn pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fchinwer.github.io%2fblog%2fprefix-sum%2f&amp;description=%e5%89%8d%e7%bc%80%e5%92%8c%e6%a8%a1%e6%9d%bf" target="_blank" rel="noopener" class="nav share-btn pinterest">
           <i class="fab fa-pinterest-p"></i><p>&nbsp;Pinterest</p>
         </a>
   
 
   
-        <a href="mailto:?subject=%e6%9f%a5%e7%9c%8b%e6%ad%a4%e5%b8%96%e5%ad%90%e7%9a%84%e4%bd%9c%e8%80%85 %e9%82%b1%e5%9c%86%e8%be%89&amp;body=https%3a%2f%2fchinwer.github.io%2fblog%2ftwo-dimension-array-oblique-traversal%2f" target="_blank" class="nav share-btn email" data-proofer-ignore>
+        <a href="mailto:?subject=%e6%9f%a5%e7%9c%8b%e6%ad%a4%e5%b8%96%e5%ad%90%e7%9a%84%e4%bd%9c%e8%80%85 %e9%82%b1%e5%9c%86%e8%be%89&amp;body=https%3a%2f%2fchinwer.github.io%2fblog%2fprefix-sum%2f" target="_blank" class="nav share-btn email" data-proofer-ignore>
           <i class="fas fa-envelope"></i><p>&nbsp;Email</p>
         </a>
   
@@ -285,15 +285,15 @@ code.has-jax {
     <header>
   <div class="title">
     
-      <h2><a href="/blog/two-dimension-array-oblique-traversal/">斜向遍历二维数组 </a></h2>
+      <h2><a href="/blog/prefix-sum/">前缀和模板</a></h2>
     
     
-      <p>斜向遍历二维数组的代码框架</p>
+      <p>一维前缀和以及二维前缀和的代码模板</p>
     
   </div>
   <div class="meta">
-    <time class="published" datetime="2020-07-25 00:00:00 &#43;0000 UTC">
-      July 25, 2020
+    <time class="published" datetime="2020-08-08 00:00:00 &#43;0000 UTC">
+      August 8, 2020
     </time>
     <span class="author">邱圆辉</span>
     
@@ -310,37 +310,37 @@ code.has-jax {
 
   
     
-    <a href="//twitter.com/share?text=%e6%96%9c%e5%90%91%e9%81%8d%e5%8e%86%e4%ba%8c%e7%bb%b4%e6%95%b0%e7%bb%84%20&amp;url=https%3a%2f%2fchinwer.github.io%2fblog%2ftwo-dimension-array-oblique-traversal%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+    <a href="//twitter.com/share?text=%e5%89%8d%e7%bc%80%e5%92%8c%e6%a8%a1%e6%9d%bf&amp;url=https%3a%2f%2fchinwer.github.io%2fblog%2fprefix-sum%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
         <i class="fab fa-twitter"></i><p>&nbsp;Twitter</p>
       </a>
   
 
   
-      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fchinwer.github.io%2fblog%2ftwo-dimension-array-oblique-traversal%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fchinwer.github.io%2fblog%2fprefix-sum%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
         <i class="fab fa-facebook"></i><p>&nbsp;Facebook</p>
         </a>
   
 
   
-    <a href="//www.reddit.com/submit?url=https%3a%2f%2fchinwer.github.io%2fblog%2ftwo-dimension-array-oblique-traversal%2f&amp;title=%e6%96%9c%e5%90%91%e9%81%8d%e5%8e%86%e4%ba%8c%e7%bb%b4%e6%95%b0%e7%bb%84%20" target="_blank" rel="noopener" class="nav share-btn reddit">
+    <a href="//www.reddit.com/submit?url=https%3a%2f%2fchinwer.github.io%2fblog%2fprefix-sum%2f&amp;title=%e5%89%8d%e7%bc%80%e5%92%8c%e6%a8%a1%e6%9d%bf" target="_blank" rel="noopener" class="nav share-btn reddit">
           <i class="fab fa-reddit-alien"></i><p>&nbsp;Reddit</p>
         </a>
   
 
   
-        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fchinwer.github.io%2fblog%2ftwo-dimension-array-oblique-traversal%2f&amp;title=%e6%96%9c%e5%90%91%e9%81%8d%e5%8e%86%e4%ba%8c%e7%bb%b4%e6%95%b0%e7%bb%84%20" target="_blank" rel="noopener" class="nav share-btn linkedin">
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fchinwer.github.io%2fblog%2fprefix-sum%2f&amp;title=%e5%89%8d%e7%bc%80%e5%92%8c%e6%a8%a1%e6%9d%bf" target="_blank" rel="noopener" class="nav share-btn linkedin">
             <i class="fab fa-linkedin"></i><p>&nbsp;LinkedIn</p>
           </a>
   
 
   
-        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fchinwer.github.io%2fblog%2ftwo-dimension-array-oblique-traversal%2f&amp;description=%e6%96%9c%e5%90%91%e9%81%8d%e5%8e%86%e4%ba%8c%e7%bb%b4%e6%95%b0%e7%bb%84%20" target="_blank" rel="noopener" class="nav share-btn pinterest">
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fchinwer.github.io%2fblog%2fprefix-sum%2f&amp;description=%e5%89%8d%e7%bc%80%e5%92%8c%e6%a8%a1%e6%9d%bf" target="_blank" rel="noopener" class="nav share-btn pinterest">
           <i class="fab fa-pinterest-p"></i><p>&nbsp;Pinterest</p>
         </a>
   
 
   
-        <a href="mailto:?subject=%e6%9f%a5%e7%9c%8b%e6%ad%a4%e5%b8%96%e5%ad%90%e7%9a%84%e4%bd%9c%e8%80%85 %e9%82%b1%e5%9c%86%e8%be%89&amp;body=https%3a%2f%2fchinwer.github.io%2fblog%2ftwo-dimension-array-oblique-traversal%2f" target="_blank" class="nav share-btn email" data-proofer-ignore>
+        <a href="mailto:?subject=%e6%9f%a5%e7%9c%8b%e6%ad%a4%e5%b8%96%e5%ad%90%e7%9a%84%e4%bd%9c%e8%80%85 %e9%82%b1%e5%9c%86%e8%be%89&amp;body=https%3a%2f%2fchinwer.github.io%2fblog%2fprefix-sum%2f" target="_blank" class="nav share-btn email" data-proofer-ignore>
           <i class="fas fa-envelope"></i><p>&nbsp;Email</p>
         </a>
   
@@ -348,21 +348,35 @@ code.has-jax {
 
     </section>
     
-  <a href="/blog/two-dimension-array-oblique-traversal/" class="image featured">
+  <a href="/blog/prefix-sum/" class="image featured">
     
-      <img src="http://47.94.16.255/images/images/2020/07/19/v2-1d69c904759f7e5085873840922dba35_1440w.jpg" alt="">
+      <img src="http://47.94.16.255/images/images/2020/08/09/ocean-3605547_1280.jpg" alt="">
     
   </a>
 
 
     <div class="content">
-      <p>在动态规划中有时会需要斜着遍历二维数组，在这里用c++简单记录一下遍历的代码：</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;</span> dp(n, vector(n, <span style="color:#ae81ff">0</span>));
-<span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> l <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>; l <span style="color:#f92672">&lt;=</span> n; l<span style="color:#f92672">++</span>) {
-    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> n; i<span style="color:#f92672">++</span>) {
-        <span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> l <span style="color:#f92672">+</span> i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>;
-        <span style="color:#75715e">/* Visit dp[i][j] */</span>
+      <h3 id="一维前缀和">一维前缀和</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> one_dimension_prefix(vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> nums) {
+    <span style="color:#66d9ef">int</span> n <span style="color:#f92672">=</span> nums.size();
+	vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> prefix(n <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>);
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> n; i<span style="color:#f92672">++</span>) {
+        prefix[i] <span style="color:#f92672">=</span> prefix[i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> nums[i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>];
     }
+    <span style="color:#66d9ef">return</span> prefix;
+}
+</code></pre></div><h3 id="二维前缀和">二维前缀和</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;</span> two_dimension_prefix(vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;</span> nums) {
+    <span style="color:#66d9ef">int</span> m <span style="color:#f92672">=</span> nums.size();
+    <span style="color:#66d9ef">int</span> n <span style="color:#f92672">=</span> nums[<span style="color:#ae81ff">0</span>].size();
+    vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;</span> prefix(m <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, vector(n <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>));
+    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> m; i<span style="color:#f92672">++</span>) {
+        <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; j <span style="color:#f92672">&lt;=</span> n; j<span style="color:#f92672">++</span>) {
+            prefix[i][j] <span style="color:#f92672">=</span> nums[i][j] <span style="color:#f92672">+</span> prefix[i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>][j]
+                <span style="color:#f92672">+</span> prefix[i][j <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">-</span> prefix[i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>][j <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>];
+        }
+    }
+    <span style="color:#66d9ef">return</span> prefix;
 }
 </code></pre></div>
     </div>
@@ -380,9 +394,9 @@ code.has-jax {
     
       
         
-          <li><a class="article-terms-link" href="/tags/array/">array</a></li>
+          <li><a class="article-terms-link" href="/tags/leetcode/">leetcode</a></li>
         
-          <li><a class="article-terms-link" href="/tags/traversal/">traversal</a></li>
+          <li><a class="article-terms-link" href="/tags/solution/">solution</a></li>
         
       
     
@@ -404,7 +418,7 @@ code.has-jax {
       </h5>
 
       
-      <input type="hidden" name="options[entryId]" value="6be75d11218c0ca0527bccf50cb3810b">
+      <input type="hidden" name="options[entryId]" value="9d3058f8c2ff43752fd429ba9235b649">
       <input type='hidden' name='fields[replyThread]' value=''>
       <input type='hidden' name='fields[replyID]' value=''>
       <input type='hidden' name='fields[replyName]' value=''>
@@ -447,10 +461,10 @@ code.has-jax {
 
   <div class="pagination">
   
-    <a href="/blog/leetcode-105/" class="button"><div class="previous"><div>力扣总结：105. 从前序与中序遍历序列构造二叉树</div></div></a>
+    <a href="/blog/leetcode-1372/" class="button"><div class="previous"><div>力扣总结：1372. 二叉树的最长交错路径</div></div></a>
   
   
-    <a href="/blog/leetcode-877/" class="button"><div class="next"><div>力扣总结：877. 石子游戏</div></div></a>
+    <a href="/blog/leetcode-matrix/" class="button"><div class="next"><div>几个矩阵有关的题</div></div></a>
   
 </div>
 

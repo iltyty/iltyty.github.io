@@ -1,0 +1,959 @@
+<!doctype html>
+<html lang="zh-cn">
+  <head>
+  <meta charset="utf-8">
+<title>几个矩阵有关的题 - 邱圆辉的博客</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+  <script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
+<meta name="generator" content="Hugo 0.73.0" /><meta itemprop="name" content="几个矩阵有关的题">
+<meta itemprop="description" content="总结一下力扣里面几个跟矩阵有关的题">
+<meta itemprop="datePublished" content="2020-08-09T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-08-09T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="857">
+<meta itemprop="image" content="http://47.94.16.255/images/images/2020/08/09/amazing-animal-beautiful-beautifullcb727d2872867c53.jpg">
+
+
+
+<meta itemprop="keywords" content="leetcode,solution," /><meta property="og:title" content="几个矩阵有关的题" />
+<meta property="og:description" content="总结一下力扣里面几个跟矩阵有关的题" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://chinwer.github.io/blog/leetcode-matrix/" />
+<meta property="og:image" content="http://47.94.16.255/images/images/2020/08/09/amazing-animal-beautiful-beautifullcb727d2872867c53.jpg" />
+<meta property="article:published_time" content="2020-08-09T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-08-09T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://47.94.16.255/images/images/2020/08/09/amazing-animal-beautiful-beautifullcb727d2872867c53.jpg"/>
+
+<meta name="twitter:title" content="几个矩阵有关的题"/>
+<meta name="twitter:description" content="总结一下力扣里面几个跟矩阵有关的题"/>
+<meta name="twitter:site" content="@chinwerqiu"/>
+<link rel="stylesheet" href="/css/bundle.min.759e3848ea529eef056dab665b241e2af569e601ab80f68f8d4a4d002a155dd4.css" integrity="sha256-dZ44SOpSnu8FbatmWyQeKvVp5gGrgPaPjUpNACoVXdQ="><link rel="stylesheet" href="/css/add-on.css">
+</head>
+
+  <body>
+    
+
+<header id="site-header">
+  <nav id="site-nav">
+    <h1 class="nav-title">
+      <a href="/" class="nav">
+        
+          
+            博客
+          
+        
+      </a>
+    </h1>
+    <menu id="site-nav-menu" class="flyout-menu menu">
+      
+        
+          
+          
+            <a href="/" class="nav link"><i class='fas fa-home'></i> 首页</a>
+          
+        
+      
+        
+          
+          
+            <a href="/about/" class="nav link"><i class='far fa-id-card'></i> 关于</a>
+          
+        
+      
+        
+          
+          
+            <a href="/blog/" class="nav link"><i class='far fa-newspaper'></i> 博客</a>
+          
+        
+      
+        
+          
+          
+            <a href="/categories/" class="nav link"><i class='fas fa-sitemap'></i> 分类</a>
+          
+        
+      
+        
+          
+          
+            <a href="/contact/" class="nav link"><i class='far fa-envelope'></i> 联系</a>
+          
+        
+      
+      <a href="#share-menu" class="nav share-toggle"><i class="fas fa-share-alt">&nbsp;</i>Share</a>
+      <a href="#search-input" class="nav search-toggle"><i class="fas fa-search">&nbsp;</i>Search</a>
+    </menu>
+    <a href="#search-input" class="nav search-toggle"><i class="fas fa-search fa-2x">&nbsp;</i></a>
+    <a href="#share-menu" class="nav share-toggle"><i class="fas fa-share-alt fa-2x">&nbsp;</i></a>
+    <a href="#lang-menu" class="nav lang-toggle" lang="zh-cn">zh-cn</a>
+    <a href="#site-nav" class="nav nav-toggle"><i class="fas fa-bars fa-2x"></i></a>
+  </nav>
+  <menu id="search" class="menu"><input id="search-input" class="search-input menu"></input><div id="search-results" class="search-results menu"></div></menu>
+  <menu id="lang-menu" class="flyout-menu menu">
+  <a href="#" lang="zh-cn" class="nav link active">中文 (zh-cn)</a>
+  
+    
+      
+        <a href="/en" lang="en" class="nav no-lang link">English (en)</a>
+      
+    
+      
+        <a href="/fr" lang="fr" class="nav no-lang link">Français (fr)</a>
+      
+    
+      
+        <a href="/pl" lang="pl" class="nav no-lang link">Polski (pl)</a>
+      
+    
+      
+        <a href="/pt" lang="pt" class="nav no-lang link">Português (pt)</a>
+      
+    
+      
+        <a href="/de" lang="de" class="nav no-lang link">Deutsche (de)</a>
+      
+    
+      
+        <a href="/es" lang="es" class="nav no-lang link">Española (es)</a>
+      
+    
+      
+    
+      
+        <a href="/zh-tw" lang="zh-tw" class="nav no-lang link">中文 (zh-tw)</a>
+      
+    
+      
+        <a href="/ja" lang="ja" class="nav no-lang link">日本語 (ja)</a>
+      
+    
+  
+</menu>
+
+  
+    <menu id="share-menu" class="flyout-menu menu">
+      <h1>Share Post</h1>
+      
+
+
+
+
+  
+    
+    <a href="//twitter.com/share?text=%e5%87%a0%e4%b8%aa%e7%9f%a9%e9%98%b5%e6%9c%89%e5%85%b3%e7%9a%84%e9%a2%98&amp;url=https%3a%2f%2fchinwer.github.io%2fblog%2fleetcode-matrix%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+        <i class="fab fa-twitter"></i><p>&nbsp;Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fchinwer.github.io%2fblog%2fleetcode-matrix%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
+        <i class="fab fa-facebook"></i><p>&nbsp;Facebook</p>
+        </a>
+  
+
+  
+    <a href="//www.reddit.com/submit?url=https%3a%2f%2fchinwer.github.io%2fblog%2fleetcode-matrix%2f&amp;title=%e5%87%a0%e4%b8%aa%e7%9f%a9%e9%98%b5%e6%9c%89%e5%85%b3%e7%9a%84%e9%a2%98" target="_blank" rel="noopener" class="nav share-btn reddit">
+          <i class="fab fa-reddit-alien"></i><p>&nbsp;Reddit</p>
+        </a>
+  
+
+  
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fchinwer.github.io%2fblog%2fleetcode-matrix%2f&amp;title=%e5%87%a0%e4%b8%aa%e7%9f%a9%e9%98%b5%e6%9c%89%e5%85%b3%e7%9a%84%e9%a2%98" target="_blank" rel="noopener" class="nav share-btn linkedin">
+            <i class="fab fa-linkedin"></i><p>&nbsp;LinkedIn</p>
+          </a>
+  
+
+  
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fchinwer.github.io%2fblog%2fleetcode-matrix%2f&amp;description=%e5%87%a0%e4%b8%aa%e7%9f%a9%e9%98%b5%e6%9c%89%e5%85%b3%e7%9a%84%e9%a2%98" target="_blank" rel="noopener" class="nav share-btn pinterest">
+          <i class="fab fa-pinterest-p"></i><p>&nbsp;Pinterest</p>
+        </a>
+  
+
+  
+        <a href="mailto:?subject=%e6%9f%a5%e7%9c%8b%e6%ad%a4%e5%b8%96%e5%ad%90%e7%9a%84%e4%bd%9c%e8%80%85 %e9%82%b1%e5%9c%86%e8%be%89&amp;body=https%3a%2f%2fchinwer.github.io%2fblog%2fleetcode-matrix%2f" target="_blank" class="nav share-btn email" data-proofer-ignore>
+          <i class="fas fa-envelope"></i><p>&nbsp;Email</p>
+        </a>
+  
+
+
+    </menu>
+  
+</header>
+
+    <div id="wrapper">
+      <section id="site-intro" >
+  <a href="/"><img src="https://chinwer.github.io/img/main/logo.jpg" class="circle" width="" alt="Hugo Future Imperfect Slim" /></a>
+  <header>
+    <h1>邱圆辉</h1>
+  </header>
+  <main>
+    <p>未来可期</p>
+  </main>
+  
+    <footer>
+      <ul class="socnet-icons">
+        
+
+        <li><a href="//github.com/chinwer" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//twitter.com/chinwerqiu" target="_blank" rel="noopener" title="Twitter" class="fab fa-twitter"></a></li>
+
+
+
+
+<li><a href="//telegram.me/Chinwer" target="_blank" rel="noopener" title="telegram" class="fab fa-telegram"></a></li>
+
+
+
+
+
+
+<li><a href="mailto:qiuyh0924@gmail.com" target="_blank" title="Email" class="far fa-envelope"></a></li>
+
+      </ul>
+    </footer>
+  
+</section>
+
+      <main id="site-main">
+        
+  <article class="post">
+    <header>
+  <div class="title">
+    
+      <h2><a href="/blog/leetcode-matrix/">几个矩阵有关的题</a></h2>
+    
+    
+      <p>总结一下力扣里面几个跟矩阵有关的题</p>
+    
+  </div>
+  <div class="meta">
+    <time class="published" datetime="2020-08-09 00:00:00 &#43;0000 UTC">
+      August 9, 2020
+    </time>
+    <span class="author">邱圆辉</span>
+    
+      <p>5 分钟</p>
+    
+  </div>
+</header>
+
+    <section id="socnet-share">
+      
+
+
+
+
+  
+    
+    <a href="//twitter.com/share?text=%e5%87%a0%e4%b8%aa%e7%9f%a9%e9%98%b5%e6%9c%89%e5%85%b3%e7%9a%84%e9%a2%98&amp;url=https%3a%2f%2fchinwer.github.io%2fblog%2fleetcode-matrix%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+        <i class="fab fa-twitter"></i><p>&nbsp;Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fchinwer.github.io%2fblog%2fleetcode-matrix%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
+        <i class="fab fa-facebook"></i><p>&nbsp;Facebook</p>
+        </a>
+  
+
+  
+    <a href="//www.reddit.com/submit?url=https%3a%2f%2fchinwer.github.io%2fblog%2fleetcode-matrix%2f&amp;title=%e5%87%a0%e4%b8%aa%e7%9f%a9%e9%98%b5%e6%9c%89%e5%85%b3%e7%9a%84%e9%a2%98" target="_blank" rel="noopener" class="nav share-btn reddit">
+          <i class="fab fa-reddit-alien"></i><p>&nbsp;Reddit</p>
+        </a>
+  
+
+  
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fchinwer.github.io%2fblog%2fleetcode-matrix%2f&amp;title=%e5%87%a0%e4%b8%aa%e7%9f%a9%e9%98%b5%e6%9c%89%e5%85%b3%e7%9a%84%e9%a2%98" target="_blank" rel="noopener" class="nav share-btn linkedin">
+            <i class="fab fa-linkedin"></i><p>&nbsp;LinkedIn</p>
+          </a>
+  
+
+  
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fchinwer.github.io%2fblog%2fleetcode-matrix%2f&amp;description=%e5%87%a0%e4%b8%aa%e7%9f%a9%e9%98%b5%e6%9c%89%e5%85%b3%e7%9a%84%e9%a2%98" target="_blank" rel="noopener" class="nav share-btn pinterest">
+          <i class="fab fa-pinterest-p"></i><p>&nbsp;Pinterest</p>
+        </a>
+  
+
+  
+        <a href="mailto:?subject=%e6%9f%a5%e7%9c%8b%e6%ad%a4%e5%b8%96%e5%ad%90%e7%9a%84%e4%bd%9c%e8%80%85 %e9%82%b1%e5%9c%86%e8%be%89&amp;body=https%3a%2f%2fchinwer.github.io%2fblog%2fleetcode-matrix%2f" target="_blank" class="nav share-btn email" data-proofer-ignore>
+          <i class="fas fa-envelope"></i><p>&nbsp;Email</p>
+        </a>
+  
+
+
+    </section>
+    
+  <a href="/blog/leetcode-matrix/" class="image featured">
+    
+      <img src="http://47.94.16.255/images/images/2020/08/09/amazing-animal-beautiful-beautifullcb727d2872867c53.jpg" alt="">
+    
+  </a>
+
+
+    <div class="content">
+      <h3 id="第1139题">第1139题</h3>
+<h4 id="题目链接">题目链接</h4>
+<p><a href="https://leetcode-cn.com/problems/largest-1-bordered-square/">1139. 最大的以1为边界的正方形</a></p>
+<h4 id="题目描述">题目描述</h4>
+<p>给你一个由若干 <code>0</code> 和 <code>1</code> 组成的二维网格 <code>grid</code>，请你找出边界全部由 <code>1</code> 组成的最大 <strong>正方形</strong> 子网格，并返回该子网格中的元素数量。如果不存在，则返回 <code>0</code>。</p>
+<h4 id="示例">示例</h4>
+<pre><code>输入：grid = [[1,1,1],[1,0,1],[1,1,1]]
+输出：9
+
+输入：grid = [[1, 1, 0, 0]]
+输出：1
+</code></pre><h4 id="思路">思路</h4>
+<p>DP数组的定义</p>
+<pre><code>dp[i][j][0]: i,j左边连续的1的个数（包括自身）
+dp[i][j][1]: i,j上边连续的1的个数（包括自身）
+</code></pre><p>思路来自于题解 <a href="https://leetcode-cn.com/problems/largest-1-bordered-square/solution/java-dong-tai-gui-hua-by-resolmi/">Java动态规划</a>。</p>
+<h4 id="c代码">c++代码</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
+    <span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+        <span style="color:#66d9ef">int</span> largest1BorderedSquare(vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;&amp;</span> grid) {
+            <span style="color:#66d9ef">if</span> (grid.empty()) {
+                <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+            }
+            <span style="color:#66d9ef">int</span> res <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+            <span style="color:#66d9ef">int</span> m <span style="color:#f92672">=</span> grid.size();
+            <span style="color:#66d9ef">int</span> n <span style="color:#f92672">=</span> grid[<span style="color:#ae81ff">0</span>].size();
+            vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;&gt;</span> dp(m <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, vector(n <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, vector(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">0</span>)));
+            <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;=</span> m; i<span style="color:#f92672">++</span>) {
+                <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; j <span style="color:#f92672">&lt;=</span> n; j<span style="color:#f92672">++</span>) {
+                    <span style="color:#66d9ef">if</span> (grid[i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>][j <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>]) {
+                        dp[i][j][<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> dp[i][j <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">0</span>] <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
+                        dp[i][j][<span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> dp[i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>][j][<span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
+                        <span style="color:#66d9ef">int</span> len <span style="color:#f92672">=</span> min(dp[i][j][<span style="color:#ae81ff">0</span>], dp[i][j][<span style="color:#ae81ff">1</span>]);
+                        <span style="color:#66d9ef">while</span> (len <span style="color:#f92672">&gt;</span> res) {
+                            <span style="color:#66d9ef">if</span> (dp[i <span style="color:#f92672">-</span> len <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>][j][<span style="color:#ae81ff">0</span>] <span style="color:#f92672">&gt;=</span> len <span style="color:#f92672">&amp;&amp;</span> dp[i][j <span style="color:#f92672">-</span> len <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">1</span>] <span style="color:#f92672">&gt;=</span> len) {
+                                <span style="color:#66d9ef">break</span>;
+                            }
+                            len<span style="color:#f92672">--</span>;
+                        }
+                        res <span style="color:#f92672">=</span> max(res, len);
+                    }
+                }
+            }
+            <span style="color:#66d9ef">return</span> res <span style="color:#f92672">*</span> res;
+        }
+};
+</code></pre></div><h4 id="几个注意点">几个注意点</h4>
+<p>写一下做了几个与这个类似的题之后，我的一些个人总结。</p>
+<ul>
+<li>
+<p>这个题考察的是一个以1为边界的方阵，而与方阵边界内的元素无关。</p>
+</li>
+<li>
+<p>需要定义一个三维数组来记录每个点向左和向上的最大连续1的个数。</p>
+</li>
+<li>
+<p>数组的前两维的维度要比 <code>grid</code> 数组的两个维度大一，这样不用考虑边界情况。</p>
+</li>
+<li>
+<p>每次找到当前点左边和上边最大连续1的个数后，要不断缩小这个方阵的边长，直到这个方阵的边界都为1。</p>
+<p>具体判断条件见 <code>while</code> 循环里面的 <code>if</code> 判断条件。</p>
+</li>
+</ul>
+<h3 id="第1740题">第1740题</h3>
+<h4 id="题目链接-1">题目链接</h4>
+<p><a href="https://leetcode-cn.com/problems/max-black-square-lcci/">面试题17.23. 最大黑方阵</a></p>
+<h4 id="题目描述-1">题目描述</h4>
+<p>给定一个方阵，其中每个单元(像素)非黑即白。设计一个算法，找出 4 条边皆为黑色像素的最大子方阵。</p>
+<p>返回一个数组 <code>[r, c, size]</code> ，其中 <code>r, c</code> 分别代表子方阵左上角的行号和列号，<code>size</code> 是子方阵的边长。若有多个满足条件的子方阵，返回 <code>r</code> 最小的，若 <code>r</code> 相同，返回 <code>c</code> 最小的子方阵。若无满足条件的子方阵，返回空数组。</p>
+<h4 id="示例-1">示例</h4>
+<pre><code>示例一
+输入:
+[
+   [1,0,1],
+   [0,0,1],
+   [0,0,1]
+]
+输出: [1,0,2]
+解释: 输入中 0 代表黑色，1 代表白色，标粗的元素即为满足条件的最大子方阵
+
+示例二
+输入:
+[
+   [0,1,1],
+   [1,0,1],
+   [1,1,0]
+]
+输出: [0,0,1]
+</code></pre><h4 id="思路-1">思路</h4>
+<p>DP数组的定义</p>
+<pre><code>dp[i][j][0]: i,j右边连续的1的个数（包括自身）
+dp[i][j][1]: i,j下边连续的1的个数（包括自身）
+</code></pre><p>思路来自于题解 <a href="https://leetcode-cn.com/problems/max-black-square-lcci/solution/c-dong-tai-gui-hua-by-tmoonli/">c++动态规划</a>。</p>
+<h4 id="c代码-1">c++代码</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
+    <span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+        vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> findSquare(vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;&amp;</span> matrix) {
+            <span style="color:#66d9ef">int</span> n <span style="color:#f92672">=</span> matrix.size();
+            <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>n) {
+                <span style="color:#66d9ef">return</span> {};
+            }
+            <span style="color:#66d9ef">int</span> r <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, c <span style="color:#f92672">=</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>, max_len <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+            <span style="color:#75715e">// dp[i][j][0]: right
+</span><span style="color:#75715e"></span>            <span style="color:#75715e">// dp[i][j][1]: down
+</span><span style="color:#75715e"></span>            vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;&gt;</span> dp(n <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, vector(n <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, vector(<span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">0</span>)));
+            <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> n <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span>; i<span style="color:#f92672">--</span>) {
+                <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> n <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>; j <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span>; j<span style="color:#f92672">--</span>) {
+                    <span style="color:#66d9ef">if</span> (matrix[i][j]) {
+                        <span style="color:#66d9ef">continue</span>;
+                    }
+                    dp[i][j][<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> dp[i][j <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">0</span>] <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
+                    dp[i][j][<span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> dp[i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>][j][<span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
+                    <span style="color:#66d9ef">int</span> len <span style="color:#f92672">=</span> min(dp[i][j][<span style="color:#ae81ff">0</span>], dp[i][j][<span style="color:#ae81ff">1</span>]);
+                    <span style="color:#66d9ef">while</span> (len <span style="color:#f92672">&gt;=</span> max_len) {
+                        <span style="color:#66d9ef">if</span> (dp[i <span style="color:#f92672">+</span> len <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>][j][<span style="color:#ae81ff">0</span>] <span style="color:#f92672">&gt;=</span> len <span style="color:#f92672">&amp;&amp;</span>
+                            dp[i][j <span style="color:#f92672">+</span> len <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>][<span style="color:#ae81ff">1</span>] <span style="color:#f92672">&gt;=</span> len) {
+                            r <span style="color:#f92672">=</span> i;
+                            c <span style="color:#f92672">=</span> j;
+                            max_len <span style="color:#f92672">=</span> len;
+                            <span style="color:#66d9ef">break</span>;
+                        }
+                        len<span style="color:#f92672">--</span>;
+                    }
+                }
+            }
+            <span style="color:#66d9ef">if</span> (r <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) {
+                <span style="color:#66d9ef">return</span> {};
+            }
+            <span style="color:#66d9ef">return</span> { r, c, max_len };
+        }
+};
+</code></pre></div><h4 id="几个注意点-1">几个注意点</h4>
+<ul>
+<li>这个题跟上面那个十分类似，不同点在于需要从下往上，从右往左遍历原矩阵。而上面那个题则是从上往下，从左往右遍历。</li>
+<li>同样 <code>dp</code> 数组的维度要比原矩阵的大1，便于边界处理。</li>
+<li>注意如果矩阵中没有黑像素点，即0，要返回一个空数组。</li>
+</ul>
+<h3 id="第1277题">第1277题</h3>
+<h4 id="题目链接-2">题目链接</h4>
+<p><a href="https://leetcode-cn.com/problems/count-square-submatrices-with-all-ones/">1277. 统计全为1的正方形子矩阵</a></p>
+<h4 id="题目描述-2">题目描述</h4>
+<p>给你一个 <code>m * n</code> 的矩阵，矩阵中的元素不是 <code>0</code> 就是 <code>1</code>，请你统计并返回其中完全由 <code>1</code> 组成的 <strong>正方形</strong> 子矩阵的个数。</p>
+<h4 id="示例-2">示例</h4>
+<pre><code>输入：matrix =
+[
+  [0,1,1,1],
+  [1,1,1,1],
+  [0,1,1,1]
+]
+输出：15
+解释： 
+边长为 1 的正方形有 10 个。
+边长为 2 的正方形有 4 个。
+边长为 3 的正方形有 1 个。
+正方形的总数 = 10 + 4 + 1 = 15.
+</code></pre><h4 id="思路-2">思路</h4>
+<p>DP数组的定义：</p>
+<pre><code>dp[i][j]: 以matrix[i][j]为右下角的正方形子矩阵的最大边长
+</code></pre><p>状态转移方程：</p>
+<pre><code>dp[i][j] = min(dp[i][j - 1], dp[i - 1][j], dp[i - 1][j - 1])
+</code></pre><p>思路来自于官方题解：<a href="https://leetcode-cn.com/problems/count-square-submatrices-with-all-ones/solution/tong-ji-quan-wei-1-de-zheng-fang-xing-zi-ju-zhen-2/">统计全为1的正方形子矩阵</a>。</p>
+<h4 id="c代码-2">c++代码</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
+    <span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+        <span style="color:#66d9ef">int</span> countSquares(vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;&amp;</span> matrix) {
+            <span style="color:#66d9ef">int</span> res <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+            <span style="color:#66d9ef">int</span> m <span style="color:#f92672">=</span> matrix.size();
+            <span style="color:#66d9ef">int</span> n <span style="color:#f92672">=</span> matrix[<span style="color:#ae81ff">0</span>].size();
+            <span style="color:#75715e">// dp[i][j]: maximum length of square matrix of all ones
+</span><span style="color:#75715e"></span>            <span style="color:#75715e">//   with matrix[i][j] as its lower right corner
+</span><span style="color:#75715e"></span>            vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;</span> dp(m, vector(n, <span style="color:#ae81ff">0</span>));
+            <span style="color:#75715e">// base case: the first row
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> n; i<span style="color:#f92672">++</span>) {
+                <span style="color:#66d9ef">if</span> (matrix[<span style="color:#ae81ff">0</span>][i]) {
+                    res<span style="color:#f92672">++</span>;
+                    dp[<span style="color:#ae81ff">0</span>][i] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+                }
+            }
+            <span style="color:#75715e">// base case: the first column
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;</span> m; i<span style="color:#f92672">++</span>) {
+                <span style="color:#66d9ef">if</span> (matrix[i][<span style="color:#ae81ff">0</span>]) {
+                    res<span style="color:#f92672">++</span>;
+                    dp[i][<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+                }
+            }
+            <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; i <span style="color:#f92672">&lt;</span> m; i<span style="color:#f92672">++</span>) {
+                <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>; j <span style="color:#f92672">&lt;</span> n; j<span style="color:#f92672">++</span>) {
+                    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>matrix[i][j]) {
+                        <span style="color:#66d9ef">continue</span>;
+                    }
+                    <span style="color:#66d9ef">int</span> len <span style="color:#f92672">=</span> _min(
+                        dp[i][j <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>],
+                        dp[i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>][j],
+                        dp[i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>][j <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>]
+                    );
+                    dp[i][j] <span style="color:#f92672">=</span> len <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
+                    res <span style="color:#f92672">+=</span> dp[i][j];
+                }
+            }
+            <span style="color:#66d9ef">return</span> res;
+        }
+
+        <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">_min</span>(<span style="color:#66d9ef">int</span> a, <span style="color:#66d9ef">int</span> b, <span style="color:#66d9ef">int</span> c) {
+            <span style="color:#66d9ef">return</span> min(a, min(b, c));
+        }
+};
+</code></pre></div><h4 id="几个注意点-2">几个注意点</h4>
+<ul>
+<li>这个题跟上面两个不同，考察的是全为1的子矩阵。</li>
+<li>递推时不再需要同时考虑两个方向上最大连续1的个数，只需要考虑两者的最小值，也就是子矩阵的边长。</li>
+<li>这里 <code>dp</code> 的维度与原矩阵相同就可以了，这样边界处理同样很方便。</li>
+</ul>
+<h3 id="第1504题">第1504题</h3>
+<h4 id="题目链接-3">题目链接</h4>
+<p><a href="https://leetcode-cn.com/problems/count-submatrices-with-all-ones/">1504. 统计全1子矩形</a></p>
+<h4 id="题目描述-3">题目描述</h4>
+<p>给你一个只包含 0 和 1 的 <code>rows * columns</code> 矩阵 <code>mat</code> ，请你返回有多少个 <strong>子矩形</strong> 的元素全部都是 1 。</p>
+<h4 id="示例-3">示例</h4>
+<pre><code>输入：mat = [[1,0,1],
+            [1,1,0],
+            [1,1,0]]
+输出：13
+解释：
+有 6 个 1x1 的矩形。
+有 2 个 1x2 的矩形。
+有 3 个 2x1 的矩形。
+有 1 个 2x2 的矩形。
+有 1 个 3x1 的矩形。
+矩形数目总共 = 6 + 2 + 3 + 1 + 1 = 13 。
+</code></pre><h4 id="思路-3">思路</h4>
+<p>这题乍一看跟上面那个一模一样，但其实这里要数的是全1的矩形个数，而不像上一题一样非得是正方形。因此会比上面那个稍微麻烦一丢丢，但总体思路还是很相似的。</p>
+<p>DP数组定义：</p>
+<pre><code>dp[i][j]: (i, j)左边最大连续1的个数（包括自身）
+</code></pre><p>我们进一步统计以 <code>(i, j)</code> 作为全1矩阵右下角的所有矩阵的个数。</p>
+<p>统计方法是枚举矩阵的高，其可能取值为 <code>[1, i + 1]</code>。</p>
+<p>具体解释参见官方题解：<a href="https://leetcode-cn.com/problems/count-submatrices-with-all-ones/solution/tong-ji-quan-1-zi-ju-xing-by-leetcode-solution/">统计全1子矩形</a></p>
+<h4 id="c代码-3">c++代码</h4>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Solution</span> {
+    <span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+        <span style="color:#66d9ef">int</span> numSubmat(vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;&amp;</span> mat) {
+            <span style="color:#66d9ef">int</span> m <span style="color:#f92672">=</span> mat.size();
+            <span style="color:#66d9ef">int</span> n <span style="color:#f92672">=</span> mat[<span style="color:#ae81ff">0</span>].size();
+            vector<span style="color:#f92672">&lt;</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;&gt;</span> dp(m, vector(n, <span style="color:#ae81ff">0</span>));
+            <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> m; i<span style="color:#f92672">++</span>) {
+                <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; j <span style="color:#f92672">&lt;</span> n; j<span style="color:#f92672">++</span>) {
+                    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>mat[i][j]) {
+                        <span style="color:#66d9ef">continue</span>;
+                    }
+                    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>j) {
+                        dp[i][j] <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+                    } <span style="color:#66d9ef">else</span> {
+                        dp[i][j] <span style="color:#f92672">=</span> dp[i][j <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
+                    }
+                }
+            }
+            <span style="color:#66d9ef">int</span> res <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+            <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> m; i<span style="color:#f92672">++</span>) {
+                <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; j <span style="color:#f92672">&lt;</span> n; j<span style="color:#f92672">++</span>) {
+                    <span style="color:#66d9ef">int</span> min_ <span style="color:#f92672">=</span> <span style="color:#ae81ff">150</span>;
+                    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">int</span> k <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; k <span style="color:#f92672">&lt;=</span> i; k<span style="color:#f92672">++</span>) {
+                        min_ <span style="color:#f92672">=</span> min(min_, dp[i <span style="color:#f92672">-</span> k][j]);
+                        res <span style="color:#f92672">+=</span> min_;
+                    }
+                }
+            }
+            <span style="color:#66d9ef">return</span> res;
+        }
+};
+</code></pre></div><h4 id="几个注意点-3">几个注意点</h4>
+<ul>
+<li>
+<p>这个题跟上一题一样，关心矩阵内所有的元素，而不仅仅是边界元素。</p>
+</li>
+<li>
+<p>同样，<code>dp</code> 数组的维度跟原矩阵保持一样就可以了。</p>
+</li>
+<li>
+<p>注意统计以 <code>(i, j)</code> 作为矩形右下角的所有全1矩形个数的方法。（代码的20到28行）</p>
+</li>
+<li>
+<p>我第一次AC的代码中同时考虑了 <code>(i, j)</code> 左边和上边最大连续1的个数，看了题解后才发现其实只需记录一个方向上的就够了，所以如果修改 <code>dp</code> 的定义为：</p>
+<pre><code>dp[i][j]: (i, j)上边最大连续1的个数
+</code></pre><p>也是可以的。这样的话，每次统计矩形个数时就是枚举矩形的宽而不是高了，思路还是没变。</p>
+</li>
+</ul>
+<h3 id="总结">总结</h3>
+<p>总之这几个与矩阵有关的题难度都不大，并且思路都有一个共同点：</p>
+<p><code>dp[i][j]</code> 表示的都是 <strong>(i, j) 左/上/右/下 边最大连续 1/0 的个数</strong> ，区别主要有以下几点：</p>
+<ul>
+<li>
+<p>遍历矩阵的顺序：从上往下还是从下往上，从左往右还是从右往左</p>
+</li>
+<li>
+<p><code>dp</code> 数组的维度：是否比原矩阵的维度大1，关键在于怎么定义 <code>dp</code> 数组的大小更有利于边界情况的处理，这里可以简单记忆如下：</p>
+<ul>
+<li>如果只考虑边界元素，就定义成比原矩阵维度大1。</li>
+<li>如果还要考虑中间元素，就定义成与原矩阵一样大。</li>
+</ul>
+</li>
+<li>
+<p>如果只考虑边界元素，在得到 <code>dp[i][j]</code> 的值后，需要不断缩小可能的矩形边长直到满足题目要求；</p>
+<p>如果还要考虑中间元素，在得到 <code>dp[i][j]</code> 后，便可直接根据它来计算结果了。</p>
+</li>
+</ul>
+
+    </div>
+    <footer>
+      <ul class="stats">
+  <li class="categories">
+    <ul>
+    
+      <li>None</li>
+    
+    </ul>
+  </li>
+  <li class="tags">
+    <ul>
+    
+      
+        
+          <li><a class="article-terms-link" href="/tags/leetcode/">leetcode</a></li>
+        
+          <li><a class="article-terms-link" href="/tags/solution/">solution</a></li>
+        
+      
+    
+    </ul>
+  </li>
+</ul>
+
+    </footer>
+  </article>
+  
+  <article class="post">
+    
+<div>
+  <h2>说些什么</h2>
+    <form id="post-js-form" class="post-new-comment" method="POST">
+      
+      <h5 class='post-reply-notice hidden'>
+        <span class='post-reply-arrow'></span><span class='post-reply-name'></span>
+      </h5>
+
+      
+      <input type="hidden" name="options[entryId]" value="7e52269a16f408f8e79e9a6a6e86a3a9">
+      <input type='hidden' name='fields[replyThread]' value=''>
+      <input type='hidden' name='fields[replyID]' value=''>
+      <input type='hidden' name='fields[replyName]' value=''>
+
+      
+      <input required name='fields[name]' type='text' placeholder='您的名字（必填）'>
+      <input name='fields[website]' type='text' placeholder='您的网站'>
+      <input required name='fields[email]' type='email' placeholder='您的电邮地址（必填，用于 Gravatar 头象）'>
+      <textarea required name='fields[body]' placeholder='您的留言。可使用 Markdown。（搜索 &#39;Markdown 語法速查&#39;）' rows='10'></textarea>
+
+      
+      
+
+      
+      <p class='post-submit-notice'>
+        <strong class='post-submit-notice-text submit-success hidden'>感谢您的评论！被批准后它会立即在此站点展示。</strong>
+        <strong class='post-submit-notice-text submit-failed hidden'>很抱歉，您的提交存在错误。请确保所有必填字段都已填写正确，然后再试一次。</strong>
+      </p>
+
+      
+      <input type='submit' value='送出' class='button'>
+      <input type='submit' value='已送出' class='hidden button' disabled>
+      <input type='reset' value='重设' class='button'>
+    </form>
+</div>
+
+
+<div>
+  <h2>评论</h2>
+
+  
+    
+      <p>还沒有留言。</p>
+    
+  
+</div>
+
+  </article>
+
+
+  <div class="pagination">
+  
+    <a href="/blog/prefix-sum/" class="button"><div class="previous"><div>前缀和模板</div></div></a>
+  
+  
+</div>
+
+
+      </main>
+      <section id="site-sidebar">
+  
+    <section id="recent-posts">
+      <header>
+        <h1>最新文章</h1>
+      </header>
+      
+      <article class="mini-post">
+        <section>
+          
+  <a href="/blog/leetcode-matrix/" class="image featured">
+    
+      <img src="http://47.94.16.255/images/images/2020/08/09/amazing-animal-beautiful-beautifullcb727d2872867c53.jpg" alt="">
+    
+  </a>
+
+
+        </section>
+        <header>
+          <h2><a href="/blog/leetcode-matrix/">几个矩阵有关的题</a></h2>
+          <time class="published" datetime="">August 9, 2020</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+        <section>
+          
+  <a href="/blog/prefix-sum/" class="image featured">
+    
+      <img src="http://47.94.16.255/images/images/2020/08/09/ocean-3605547_1280.jpg" alt="">
+    
+  </a>
+
+
+        </section>
+        <header>
+          <h2><a href="/blog/prefix-sum/">前缀和模板</a></h2>
+          <time class="published" datetime="">August 8, 2020</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+        <section>
+          
+  <a href="/blog/leetcode-1372/" class="image featured">
+    
+      <img src="http://47.94.16.255/images/images/2020/08/03/zen-peace-1728x1080.jpg" alt="">
+    
+  </a>
+
+
+        </section>
+        <header>
+          <h2><a href="/blog/leetcode-1372/">力扣总结：1372. 二叉树的最长交错路径</a></h2>
+          <time class="published" datetime="">August 2, 2020</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+        <section>
+          
+  <a href="/blog/leetcode-1140/" class="image featured">
+    
+      <img src="http://47.94.16.255/images/images/2020/08/03/pavement-wallpaper.jpg" alt="">
+    
+  </a>
+
+
+        </section>
+        <header>
+          <h2><a href="/blog/leetcode-1140/">力扣总结：1140. 石子游戏 II</a></h2>
+          <time class="published" datetime="">July 28, 2020</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+        <section>
+          
+  <a href="/blog/leetcode-877/" class="image featured">
+    
+      <img src="http://47.94.16.255/images/images/2020/07/19/ed93cb4a546971f4dfaaf31666dfb8b1_1440w.jpg" alt="">
+    
+  </a>
+
+
+        </section>
+        <header>
+          <h2><a href="/blog/leetcode-877/">力扣总结：877. 石子游戏</a></h2>
+          <time class="published" datetime="">July 28, 2020</time>
+        </header>
+      </article>
+      
+      
+        <footer>
+          <a href="/blog/" class="button">查看更多</a>
+        </footer>
+      
+    </section>
+  
+
+  
+    
+      <section id="categories">
+        <header>
+          <h1><a href="/categories">分类</a></h1>
+        </header>
+        <ul>
+          
+            
+          
+          
+          <li>
+            
+              <a href="/categories/syntax/">syntax<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/themes/">themes<span class="count">1</span></a>
+            
+          
+          </li>
+        </ul>
+      </section>
+    
+  
+
+  
+    <section id="mini-bio">
+      <header>
+        <h1>关于</h1>
+      </header>
+      <p>This theme was developed for Hugo static site generator.</p>
+      <footer>
+        <a href="/about" class="button">了解更多</a>
+      </footer>
+    </section>
+  
+</section>
+
+      <footer id="site-footer">
+  
+      <ul class="socnet-icons">
+        
+
+        <li><a href="//github.com/chinwer" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//twitter.com/chinwerqiu" target="_blank" rel="noopener" title="Twitter" class="fab fa-twitter"></a></li>
+
+
+
+
+<li><a href="//telegram.me/Chinwer" target="_blank" rel="noopener" title="telegram" class="fab fa-telegram"></a></li>
+
+
+
+
+
+
+<li><a href="mailto:qiuyh0924@gmail.com" target="_blank" title="Email" class="far fa-envelope"></a></li>
+
+      </ul>
+  
+  <p class="copyright">
+    
+      &copy; 2020
+      
+        邱圆辉的博客
+      
+    . <br>
+    主题: <a href='https://themes.gohugo.io/hugo-future-imperfect-slim/' target='_blank' rel='noopener'>Hugo Future Imperfect Slim</a><br>移植自 <a href='https://html5up.net/future-imperfect' target='_blank' rel='noopener'>HTML5 UP</a> | 由 <a href='https://gohugo.io/' target='_blank' rel='noopener' title='0.73.0'>Hugo</a> 驱动
+  </p>
+</footer>
+<a id="back-to-top" href="#" class="fas fa-arrow-up fa-2x"></a>
+
+      <script src="/js/highlight.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script><script src="/js/bundle.min.25b75981613588670b44ec3137da5eea58be6c8e55cb67275a70996b848b9ca1.js" integrity="sha256-JbdZgWE1iGcLROwxN9pe6li&#43;bI5Vy2cnWnCZa4SLnKE="></script>
+    <script src="/js/add-on.js"></script>
+    </div>
+  </body>
+</html>
