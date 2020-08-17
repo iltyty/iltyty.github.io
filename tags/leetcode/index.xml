@@ -6,10 +6,40 @@
     <description>Recent content in leetcode on 邱圆辉的博客</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Sun, 09 Aug 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 17 Aug 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://chinwer.github.io/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>力扣总结：956. 最高的广告牌</title>
+      <link>https://chinwer.github.io/blog/leetcode-956/</link>
+      <pubDate>Mon, 17 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://chinwer.github.io/blog/leetcode-956/</guid>
+      <description>题目链接 956. 最高的广告牌
+题目描述 你正在安装一个广告牌，并希望它高度最大。这块广告牌将有两个钢制支架，两边各一个。每个钢支架的高度必须相等。
+你有一堆可以焊接在一起的钢筋 rods。举个例子，如果钢筋的长度为 1、2 和 3，则可以将它们焊接在一起形成长度为 6 的支架。
+返回广告牌的最大可能安装高度。如果没法安装广告牌，请返回 0。
+示例 输入：[1,2,3,6]输出：6解释：我们有两个不相交的子集 {1,2,3} 和 {6}，它们具有相同的和 sum = 6。思路一   思路来源
+来源一，来源二
+  状态定义
+dp[i][j]：将前 i 个钢管分成两个集合，集合值为 j 时，子集和的最大值  状态转移
+  不用第 $i$ 个钢管，此时有： $$ dp[i][j] = dp[i - 1][j] $$
+  把第 $i$ 个钢管放在子集和较大的一边，此时有： $$ dp[i][k] = max(dp[i][k], dp[i - 1][j] + rods[i]), k = j + rods[i] $$</description>
+    </item>
+    
+    <item>
+      <title>力扣总结：650. 只有两个键的键盘</title>
+      <link>https://chinwer.github.io/blog/leetcode-650/</link>
+      <pubDate>Mon, 10 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://chinwer.github.io/blog/leetcode-650/</guid>
+      <description>题目描述 最初在一个记事本上只有一个字符 &amp;lsquo;A&amp;rsquo;。你每次可以对这个记事本进行两种操作：
+ Copy All (复制全部) : 你可以复制这个记事本中的所有字符(部分的复制是不允许的)。 Paste (粘贴) : 你可以粘贴你上一次复制的字符。 给定一个数字 n 。你需要使用最少的操作次数，在记事本中打印出 恰好 n 个 &amp;lsquo;A&amp;rsquo;。输出能够打印出 n 个 &amp;lsquo;A&amp;rsquo; 的最少操作次数。  示例 输入: 3输出: 3解释:最初, 我们只有一个字符 &#39;A&#39;。第 1 步, 我们使用 Copy All 操作。第 2 步, 我们使用 Paste 操作来获得 &#39;AA&#39;。第 3 步, 我们使用 Paste 操作来获得 &#39;AAA&#39;。思路一 具体思路就懒得写了，反正是写给自己看的，详情可参考题解：动态规划。
+  dp 数组定义
+dp[i][j]: 要使得当前记事本上 &#39;A&#39; 的个数为 i，且缓冲区 &#39;A&#39; 的个数为 j 的最小步数  状态转移方程为：</description>
+    </item>
     
     <item>
       <title>几个矩阵有关的题</title>
