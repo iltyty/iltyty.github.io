@@ -4,7 +4,7 @@
   
   <url>
     <loc>https://chinwer.github.io/blog/</loc>
-    <lastmod>2020-08-17T00:00:00+00:00</lastmod>
+    <lastmod>2020-08-20T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr"
@@ -18,18 +18,28 @@
   </url>
   
   <url>
-    <loc>https://chinwer.github.io/tags/leetcode/</loc>
-    <lastmod>2020-08-17T00:00:00+00:00</lastmod>
+    <loc>https://chinwer.github.io/blog/hadoop-hive-installation/</loc>
+    <lastmod>2020-08-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://chinwer.github.io/tags/solution/</loc>
-    <lastmod>2020-08-17T00:00:00+00:00</lastmod>
+    <loc>https://chinwer.github.io/tags/hadoop/</loc>
+    <lastmod>2020-08-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chinwer.github.io/tags/hive/</loc>
+    <lastmod>2020-08-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chinwer.github.io/tags/installation/</loc>
+    <lastmod>2020-08-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://chinwer.github.io/tags/</loc>
-    <lastmod>2020-08-17T00:00:00+00:00</lastmod>
+    <lastmod>2020-08-20T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -78,13 +88,8 @@
   </url>
   
   <url>
-    <loc>https://chinwer.github.io/blog/leetcode-956/</loc>
-    <lastmod>2020-08-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://chinwer.github.io/</loc>
-    <lastmod>2020-08-17T00:00:00+00:00</lastmod>
+    <lastmod>2020-08-20T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -130,6 +135,21 @@
                 hreflang="zh-cn"
                 href="https://chinwer.github.io/"
                 />
+  </url>
+  
+  <url>
+    <loc>https://chinwer.github.io/tags/leetcode/</loc>
+    <lastmod>2020-08-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chinwer.github.io/tags/solution/</loc>
+    <lastmod>2020-08-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://chinwer.github.io/blog/leetcode-956/</loc>
+    <lastmod>2020-08-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>

@@ -1,0 +1,738 @@
+<!doctype html>
+<html lang="zh-cn">
+  <head>
+  <meta charset="utf-8">
+<title>Centos下hadoop, hive本地模式安装总结 - 邱圆辉的博客</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+  <script type="text/javascript"
+        async
+        src="https://cdn.bootcss.com/mathjax/2.7.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+MathJax.Hub.Config({
+  tex2jax: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\[\[','\]\]']],
+    processEscapes: true,
+    processEnvironments: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+    TeX: { equationNumbers: { autoNumber: "AMS" },
+         extensions: ["AMSmath.js", "AMSsymbols.js"] }
+  }
+});
+
+MathJax.Hub.Queue(function() {
+    
+    
+    
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<style>
+code.has-jax {
+    font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}
+</style>
+<meta name="generator" content="Hugo 0.73.0" /><meta itemprop="name" content="Centos下hadoop, hive本地模式安装总结">
+<meta itemprop="description" content="hadoop, hive的安装总结">
+<meta itemprop="datePublished" content="2020-08-20T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-08-20T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="125">
+<meta itemprop="image" content="http://47.94.16.255/images/images/2020/08/09/pexels-photo-531321.jpg">
+
+
+
+<meta itemprop="keywords" content="hadoop,hive,installation," /><meta property="og:title" content="Centos下hadoop, hive本地模式安装总结" />
+<meta property="og:description" content="hadoop, hive的安装总结" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://chinwer.github.io/blog/hadoop-hive-installation/" />
+<meta property="og:image" content="http://47.94.16.255/images/images/2020/08/09/pexels-photo-531321.jpg" />
+<meta property="article:published_time" content="2020-08-20T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-08-20T00:00:00+00:00" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://47.94.16.255/images/images/2020/08/09/pexels-photo-531321.jpg"/>
+
+<meta name="twitter:title" content="Centos下hadoop, hive本地模式安装总结"/>
+<meta name="twitter:description" content="hadoop, hive的安装总结"/>
+<meta name="twitter:site" content="@chinwerqiu"/>
+<link rel="stylesheet" href="/css/bundle.min.759e3848ea529eef056dab665b241e2af569e601ab80f68f8d4a4d002a155dd4.css" integrity="sha256-dZ44SOpSnu8FbatmWyQeKvVp5gGrgPaPjUpNACoVXdQ="><link rel="stylesheet" href="/css/add-on.css">
+</head>
+
+  <body>
+    
+
+<header id="site-header">
+  <nav id="site-nav">
+    <h1 class="nav-title">
+      <a href="/" class="nav">
+        
+          
+            博客
+          
+        
+      </a>
+    </h1>
+    <menu id="site-nav-menu" class="flyout-menu menu">
+      
+        
+          
+          
+            <a href="/" class="nav link"><i class='fas fa-home'></i> 首页</a>
+          
+        
+      
+        
+          
+          
+            <a href="/about/" class="nav link"><i class='far fa-id-card'></i> 关于</a>
+          
+        
+      
+        
+          
+          
+            <a href="/blog/" class="nav link"><i class='far fa-newspaper'></i> 博客</a>
+          
+        
+      
+        
+          
+          
+            <a href="/categories/" class="nav link"><i class='fas fa-sitemap'></i> 分类</a>
+          
+        
+      
+        
+          
+          
+            <a href="/contact/" class="nav link"><i class='far fa-envelope'></i> 联系</a>
+          
+        
+      
+      <a href="#share-menu" class="nav share-toggle"><i class="fas fa-share-alt">&nbsp;</i>Share</a>
+      <a href="#search-input" class="nav search-toggle"><i class="fas fa-search">&nbsp;</i>Search</a>
+    </menu>
+    <a href="#search-input" class="nav search-toggle"><i class="fas fa-search fa-2x">&nbsp;</i></a>
+    <a href="#share-menu" class="nav share-toggle"><i class="fas fa-share-alt fa-2x">&nbsp;</i></a>
+    <a href="#lang-menu" class="nav lang-toggle" lang="zh-cn">zh-cn</a>
+    <a href="#site-nav" class="nav nav-toggle"><i class="fas fa-bars fa-2x"></i></a>
+  </nav>
+  <menu id="search" class="menu"><input id="search-input" class="search-input menu"></input><div id="search-results" class="search-results menu"></div></menu>
+  <menu id="lang-menu" class="flyout-menu menu">
+  <a href="#" lang="zh-cn" class="nav link active">中文 (zh-cn)</a>
+  
+    
+      
+        <a href="/en" lang="en" class="nav no-lang link">English (en)</a>
+      
+    
+      
+        <a href="/fr" lang="fr" class="nav no-lang link">Français (fr)</a>
+      
+    
+      
+        <a href="/pl" lang="pl" class="nav no-lang link">Polski (pl)</a>
+      
+    
+      
+        <a href="/pt" lang="pt" class="nav no-lang link">Português (pt)</a>
+      
+    
+      
+        <a href="/de" lang="de" class="nav no-lang link">Deutsche (de)</a>
+      
+    
+      
+        <a href="/es" lang="es" class="nav no-lang link">Española (es)</a>
+      
+    
+      
+    
+      
+        <a href="/zh-tw" lang="zh-tw" class="nav no-lang link">中文 (zh-tw)</a>
+      
+    
+      
+        <a href="/ja" lang="ja" class="nav no-lang link">日本語 (ja)</a>
+      
+    
+  
+</menu>
+
+  
+    <menu id="share-menu" class="flyout-menu menu">
+      <h1>Share Post</h1>
+      
+
+
+
+
+  
+    
+    <a href="//twitter.com/share?text=Centos%e4%b8%8bhadoop%2c%20hive%e6%9c%ac%e5%9c%b0%e6%a8%a1%e5%bc%8f%e5%ae%89%e8%a3%85%e6%80%bb%e7%bb%93&amp;url=https%3a%2f%2fchinwer.github.io%2fblog%2fhadoop-hive-installation%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+        <i class="fab fa-twitter"></i><p>&nbsp;Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fchinwer.github.io%2fblog%2fhadoop-hive-installation%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
+        <i class="fab fa-facebook"></i><p>&nbsp;Facebook</p>
+        </a>
+  
+
+  
+    <a href="//www.reddit.com/submit?url=https%3a%2f%2fchinwer.github.io%2fblog%2fhadoop-hive-installation%2f&amp;title=Centos%e4%b8%8bhadoop%2c%20hive%e6%9c%ac%e5%9c%b0%e6%a8%a1%e5%bc%8f%e5%ae%89%e8%a3%85%e6%80%bb%e7%bb%93" target="_blank" rel="noopener" class="nav share-btn reddit">
+          <i class="fab fa-reddit-alien"></i><p>&nbsp;Reddit</p>
+        </a>
+  
+
+  
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fchinwer.github.io%2fblog%2fhadoop-hive-installation%2f&amp;title=Centos%e4%b8%8bhadoop%2c%20hive%e6%9c%ac%e5%9c%b0%e6%a8%a1%e5%bc%8f%e5%ae%89%e8%a3%85%e6%80%bb%e7%bb%93" target="_blank" rel="noopener" class="nav share-btn linkedin">
+            <i class="fab fa-linkedin"></i><p>&nbsp;LinkedIn</p>
+          </a>
+  
+
+  
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fchinwer.github.io%2fblog%2fhadoop-hive-installation%2f&amp;description=Centos%e4%b8%8bhadoop%2c%20hive%e6%9c%ac%e5%9c%b0%e6%a8%a1%e5%bc%8f%e5%ae%89%e8%a3%85%e6%80%bb%e7%bb%93" target="_blank" rel="noopener" class="nav share-btn pinterest">
+          <i class="fab fa-pinterest-p"></i><p>&nbsp;Pinterest</p>
+        </a>
+  
+
+  
+        <a href="mailto:?subject=%e6%9f%a5%e7%9c%8b%e6%ad%a4%e5%b8%96%e5%ad%90%e7%9a%84%e4%bd%9c%e8%80%85 %e9%82%b1%e5%9c%86%e8%be%89&amp;body=https%3a%2f%2fchinwer.github.io%2fblog%2fhadoop-hive-installation%2f" target="_blank" class="nav share-btn email" data-proofer-ignore>
+          <i class="fas fa-envelope"></i><p>&nbsp;Email</p>
+        </a>
+  
+
+
+    </menu>
+  
+</header>
+
+    <div id="wrapper">
+      <section id="site-intro" >
+  <a href="/"><img src="https://chinwer.github.io/img/main/logo.jpg" class="circle" width="" alt="Hugo Future Imperfect Slim" /></a>
+  <header>
+    <h1>邱圆辉</h1>
+  </header>
+  <main>
+    <p>未来可期</p>
+  </main>
+  
+    <footer>
+      <ul class="socnet-icons">
+        
+
+        <li><a href="//github.com/chinwer" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//twitter.com/chinwerqiu" target="_blank" rel="noopener" title="Twitter" class="fab fa-twitter"></a></li>
+
+
+
+
+<li><a href="//telegram.me/Chinwer" target="_blank" rel="noopener" title="telegram" class="fab fa-telegram"></a></li>
+
+
+
+
+
+
+<li><a href="mailto:qiuyh0924@gmail.com" target="_blank" title="Email" class="far fa-envelope"></a></li>
+
+      </ul>
+    </footer>
+  
+</section>
+
+      <main id="site-main">
+        
+  <article class="post">
+    <header>
+  <div class="title">
+    
+      <h2><a href="/blog/hadoop-hive-installation/">Centos下hadoop, hive本地模式安装总结</a></h2>
+    
+    
+      <p>hadoop, hive的安装总结</p>
+    
+  </div>
+  <div class="meta">
+    <time class="published" datetime="2020-08-20 00:00:00 &#43;0000 UTC">
+      August 20, 2020
+    </time>
+    <span class="author">邱圆辉</span>
+    
+      <p>1 分钟</p>
+    
+  </div>
+</header>
+
+    <section id="socnet-share">
+      
+
+
+
+
+  
+    
+    <a href="//twitter.com/share?text=Centos%e4%b8%8bhadoop%2c%20hive%e6%9c%ac%e5%9c%b0%e6%a8%a1%e5%bc%8f%e5%ae%89%e8%a3%85%e6%80%bb%e7%bb%93&amp;url=https%3a%2f%2fchinwer.github.io%2fblog%2fhadoop-hive-installation%2f" target="_blank" rel="noopener" class="nav share-btn twitter">
+        <i class="fab fa-twitter"></i><p>&nbsp;Twitter</p>
+      </a>
+  
+
+  
+      <a href="//www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fchinwer.github.io%2fblog%2fhadoop-hive-installation%2f" target="_blank" rel="noopener" class="nav share-btn facebook">
+        <i class="fab fa-facebook"></i><p>&nbsp;Facebook</p>
+        </a>
+  
+
+  
+    <a href="//www.reddit.com/submit?url=https%3a%2f%2fchinwer.github.io%2fblog%2fhadoop-hive-installation%2f&amp;title=Centos%e4%b8%8bhadoop%2c%20hive%e6%9c%ac%e5%9c%b0%e6%a8%a1%e5%bc%8f%e5%ae%89%e8%a3%85%e6%80%bb%e7%bb%93" target="_blank" rel="noopener" class="nav share-btn reddit">
+          <i class="fab fa-reddit-alien"></i><p>&nbsp;Reddit</p>
+        </a>
+  
+
+  
+        <a href="//www.linkedin.com/shareArticle?url=https%3a%2f%2fchinwer.github.io%2fblog%2fhadoop-hive-installation%2f&amp;title=Centos%e4%b8%8bhadoop%2c%20hive%e6%9c%ac%e5%9c%b0%e6%a8%a1%e5%bc%8f%e5%ae%89%e8%a3%85%e6%80%bb%e7%bb%93" target="_blank" rel="noopener" class="nav share-btn linkedin">
+            <i class="fab fa-linkedin"></i><p>&nbsp;LinkedIn</p>
+          </a>
+  
+
+  
+        <a href="//www.pinterest.com/pin/create/button/?url=https%3a%2f%2fchinwer.github.io%2fblog%2fhadoop-hive-installation%2f&amp;description=Centos%e4%b8%8bhadoop%2c%20hive%e6%9c%ac%e5%9c%b0%e6%a8%a1%e5%bc%8f%e5%ae%89%e8%a3%85%e6%80%bb%e7%bb%93" target="_blank" rel="noopener" class="nav share-btn pinterest">
+          <i class="fab fa-pinterest-p"></i><p>&nbsp;Pinterest</p>
+        </a>
+  
+
+  
+        <a href="mailto:?subject=%e6%9f%a5%e7%9c%8b%e6%ad%a4%e5%b8%96%e5%ad%90%e7%9a%84%e4%bd%9c%e8%80%85 %e9%82%b1%e5%9c%86%e8%be%89&amp;body=https%3a%2f%2fchinwer.github.io%2fblog%2fhadoop-hive-installation%2f" target="_blank" class="nav share-btn email" data-proofer-ignore>
+          <i class="fas fa-envelope"></i><p>&nbsp;Email</p>
+        </a>
+  
+
+
+    </section>
+    
+  <a href="/blog/hadoop-hive-installation/" class="image featured">
+    
+      <img src="http://47.94.16.255/images/images/2020/08/09/pexels-photo-531321.jpg" alt="">
+    
+  </a>
+
+
+    <div class="content">
+      <h3 id="hadoop-260-的安装">Hadoop 2.6.0 的安装</h3>
+<p>只是简单的总结一下安装步骤，每一步里的具体操作就懒得记录了，网上一搜一大堆。</p>
+<ol>
+<li>
+<p>从 <a href="https://hadoop.apache.org/releases.html">官网</a> 下载对应版本.tar.gz压缩包，注意是源码，不要下载带 <strong>bin</strong> 字样的包。</p>
+</li>
+<li>
+<p>运行 <code>tar -zxvf hadoop.tar.gz</code> 解压，这里假设解压在用户 qiu 的家目录，因此hadoop的主目录路径为：<code>/home/qiu/hadoop</code>。</p>
+</li>
+<li>
+<p>设置 HADOOP_HOME 环境变量：</p>
+<p>这里因为我用的shell环境是zsh，所以编辑的是 <code>~/.zshrc</code> 文件，如果shell环境是默认的bash，就编辑<code>~/.bashrc</code>就好了。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vim ~/.zshrc
+export HADOOP_HOME<span style="color:#f92672">=</span>~/hadoop
+source ~/.zshrc
+</code></pre></div></li>
+<li>
+<p>把hadoop添加至PATH：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vim ~/.zshrc
+export PATH<span style="color:#f92672">=</span>$PATH:$HADOOP_HOME/bin:$HADOOP_HOME/sbin
+source ~/.zshrc
+</code></pre></div></li>
+</ol>
+<p>至此，hadoop的本地模式就算配置好了，很简单的。</p>
+<h3 id="hive-122-的安装">Hive 1.2.2 的安装</h3>
+<p>同上，只记录一下几个步骤：</p>
+<ol>
+<li>
+<p>从 <a href="https://mirrors.tuna.tsinghua.edu.cn/apache/hive/">hive清华镜像源</a> 下载对应版本的编译好的压缩包，注意是带 <strong>bin</strong> 字样的。</p>
+</li>
+<li>
+<p>同hadoop安装的第二步，同时也假设安装在家目录。</p>
+</li>
+<li>
+<p>设置 HIVE_HOME 环境变量：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vim ~/.zshrc
+export HIVE_HOME<span style="color:#f92672">=</span>~/hive
+source ~/.zshrc
+</code></pre></div></li>
+<li>
+<p>把hive添加至PATH：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">vim ~/.zshrc
+export PATH<span style="color:#f92672">=</span>$PATH:$HIVE_HOME
+source ~/.zshrc
+</code></pre></div></li>
+<li>
+<p>配置 hive-site.xml</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd $HIVE_HOME/conf
+vim hive-site.xml
+</code></pre></div><p>如果没有 hive-site.xml，就自己新建一个，然后在hive主目录下新建一个名叫 <strong>warehouse</strong> 的目录。</p>
+<p>然后把下面的内容复制进去：（这里使用的数据库是hive默认的derby，如果需要使用其他关系型数据库比如mysql，自己google吧）</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;configuration&gt;</span>                                                                    
+        <span style="color:#f92672">&lt;property&gt;</span>                                                                 
+                <span style="color:#f92672">&lt;name&gt;</span> hive.metastore.warehouse.dir<span style="color:#f92672">&lt;/name&gt;</span>                         
+                <span style="color:#f92672">&lt;value&gt;</span>/home/qiu/hive/warehouse<span style="color:#f92672">&lt;/value&gt;</span>                     
+        <span style="color:#f92672">&lt;/property&gt;</span>                                                                
+                                                     
+        <span style="color:#f92672">&lt;property&gt;</span>                                                                 
+                <span style="color:#f92672">&lt;name&gt;</span>javax.jdo.option.ConnectionDriverName<span style="color:#f92672">&lt;/name&gt;</span>                 
+                <span style="color:#f92672">&lt;value&gt;</span>org.apache.derby.jdbc.EmbeddedDriver<span style="color:#f92672">&lt;/value&gt;</span>                
+                <span style="color:#f92672">&lt;description&gt;</span>Driver class name for a JDBC metastore<span style="color:#f92672">&lt;/description&gt;</span>  
+        <span style="color:#f92672">&lt;/property&gt;</span>                                                                
+<span style="color:#f92672">&lt;/configuration&gt;</span>                                                                   
+</code></pre></div><p>注意把上面 <code>hive.metastore.warehouse.dir</code> 的路径换成自己的hive路径。</p>
+</li>
+<li>
+<p>配置 hive-env.sh</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd $HIVE_HOME/conf
+vim hive-env.sh
+</code></pre></div><p>同样，如果没有这个文件就自己新建一个（不过反正就算不存在的话vim也会自动创建一个）</p>
+<p>找到里面 <code>export HADOOP_HOME=xxx</code> 这一行，把后面的路径换成hadoop的安装路径：</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">export HADOOP_HOME<span style="color:#f92672">=</span>/home/qiu/hadoop
+</code></pre></div></li>
+</ol>
+<p>到这里，hive本地模式也算配置好了。</p>
+<p>但是我在配置好这些之后运行 <code>hive</code> 会报错：</p>
+<p><strong>Found class jline.Terminal, but interface was expected</strong>，</p>
+<p>google后发现是因为hive里jline.jar这个包与hadoop的yarn中的jline.jar版本不一致，把前者复制到后者所在目录并把后者覆盖就行：</p>
+<pre><code>cp $HIVE_HOME/lib/jline-2.12.jar $HADOOP_HOME/share/hadoop/yarn/lib
+rm $HADOOP_HOME/share/hadoop/yarn/lib/jline-0.9.94.jar
+</code></pre><p>这里注意把jline的版本替换成自己的版本。</p>
+
+    </div>
+    <footer>
+      <ul class="stats">
+  <li class="categories">
+    <ul>
+    
+      <li>None</li>
+    
+    </ul>
+  </li>
+  <li class="tags">
+    <ul>
+    
+      
+        
+          <li><a class="article-terms-link" href="/tags/hadoop/">hadoop</a></li>
+        
+          <li><a class="article-terms-link" href="/tags/hive/">hive</a></li>
+        
+          <li><a class="article-terms-link" href="/tags/installation/">installation</a></li>
+        
+      
+    
+    </ul>
+  </li>
+</ul>
+
+    </footer>
+  </article>
+  
+  <article class="post">
+    
+<div>
+  <h2>说些什么</h2>
+    <form id="post-js-form" class="post-new-comment" method="POST">
+      
+      <h5 class='post-reply-notice hidden'>
+        <span class='post-reply-arrow'></span><span class='post-reply-name'></span>
+      </h5>
+
+      
+      <input type="hidden" name="options[entryId]" value="03406f732c5a56faf8dd3ca3a486049e">
+      <input type='hidden' name='fields[replyThread]' value=''>
+      <input type='hidden' name='fields[replyID]' value=''>
+      <input type='hidden' name='fields[replyName]' value=''>
+
+      
+      <input required name='fields[name]' type='text' placeholder='您的名字（必填）'>
+      <input name='fields[website]' type='text' placeholder='您的网站'>
+      <input required name='fields[email]' type='email' placeholder='您的电邮地址（必填，用于 Gravatar 头象）'>
+      <textarea required name='fields[body]' placeholder='您的留言。可使用 Markdown。（搜索 &#39;Markdown 語法速查&#39;）' rows='10'></textarea>
+
+      
+      
+
+      
+      <p class='post-submit-notice'>
+        <strong class='post-submit-notice-text submit-success hidden'>感谢您的评论！被批准后它会立即在此站点展示。</strong>
+        <strong class='post-submit-notice-text submit-failed hidden'>很抱歉，您的提交存在错误。请确保所有必填字段都已填写正确，然后再试一次。</strong>
+      </p>
+
+      
+      <input type='submit' value='送出' class='button'>
+      <input type='submit' value='已送出' class='hidden button' disabled>
+      <input type='reset' value='重设' class='button'>
+    </form>
+</div>
+
+
+<div>
+  <h2>评论</h2>
+
+  
+    
+      <p>还沒有留言。</p>
+    
+  
+</div>
+
+  </article>
+
+
+  <div class="pagination">
+  
+    <a href="/blog/leetcode-956/" class="button"><div class="previous"><div>力扣总结：956. 最高的广告牌</div></div></a>
+  
+  
+</div>
+
+
+      </main>
+      <section id="site-sidebar">
+  
+    <section id="recent-posts">
+      <header>
+        <h1>最新文章</h1>
+      </header>
+      
+      <article class="mini-post">
+        <section>
+          
+  <a href="/blog/hadoop-hive-installation/" class="image featured">
+    
+      <img src="http://47.94.16.255/images/images/2020/08/09/pexels-photo-531321.jpg" alt="">
+    
+  </a>
+
+
+        </section>
+        <header>
+          <h2><a href="/blog/hadoop-hive-installation/">Centos下hadoop, hive本地模式安装总结</a></h2>
+          <time class="published" datetime="">August 20, 2020</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+        <section>
+          
+  <a href="/blog/leetcode-956/" class="image featured">
+    
+      <img src="http://47.94.16.255/images/images/2020/08/09/pexels-photo-531321.jpg" alt="">
+    
+  </a>
+
+
+        </section>
+        <header>
+          <h2><a href="/blog/leetcode-956/">力扣总结：956. 最高的广告牌</a></h2>
+          <time class="published" datetime="">August 17, 2020</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+        <section>
+          
+  <a href="/blog/leetcode-650/" class="image featured">
+    
+      <img src="http://47.94.16.255/images/images/2020/08/09/pexels-photo-531321.jpg" alt="">
+    
+  </a>
+
+
+        </section>
+        <header>
+          <h2><a href="/blog/leetcode-650/">力扣总结：650. 只有两个键的键盘</a></h2>
+          <time class="published" datetime="">August 10, 2020</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+        <section>
+          
+  <a href="/blog/leetcode-matrix/" class="image featured">
+    
+      <img src="http://47.94.16.255/images/images/2020/08/09/amazing-animal-beautiful-beautifullcb727d2872867c53.jpg" alt="">
+    
+  </a>
+
+
+        </section>
+        <header>
+          <h2><a href="/blog/leetcode-matrix/">几个矩阵有关的题</a></h2>
+          <time class="published" datetime="">August 9, 2020</time>
+        </header>
+      </article>
+      
+      <article class="mini-post">
+        <section>
+          
+  <a href="/blog/prefix-sum/" class="image featured">
+    
+      <img src="http://47.94.16.255/images/images/2020/08/09/ocean-3605547_1280.jpg" alt="">
+    
+  </a>
+
+
+        </section>
+        <header>
+          <h2><a href="/blog/prefix-sum/">前缀和模板</a></h2>
+          <time class="published" datetime="">August 8, 2020</time>
+        </header>
+      </article>
+      
+      
+        <footer>
+          <a href="/blog/" class="button">查看更多</a>
+        </footer>
+      
+    </section>
+  
+
+  
+    
+      <section id="categories">
+        <header>
+          <h1><a href="/categories">分类</a></h1>
+        </header>
+        <ul>
+          
+            
+          
+          
+          <li>
+            
+              <a href="/categories/syntax/">syntax<span class="count">1</span></a>
+            
+          
+          <li>
+            
+              <a href="/categories/themes/">themes<span class="count">1</span></a>
+            
+          
+          </li>
+        </ul>
+      </section>
+    
+  
+
+  
+    <section id="mini-bio">
+      <header>
+        <h1>关于</h1>
+      </header>
+      <p>This theme was developed for Hugo static site generator.</p>
+      <footer>
+        <a href="/about" class="button">了解更多</a>
+      </footer>
+    </section>
+  
+</section>
+
+      <footer id="site-footer">
+  
+      <ul class="socnet-icons">
+        
+
+        <li><a href="//github.com/chinwer" target="_blank" rel="noopener" title="GitHub" class="fab fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li><a href="//twitter.com/chinwerqiu" target="_blank" rel="noopener" title="Twitter" class="fab fa-twitter"></a></li>
+
+
+
+
+<li><a href="//telegram.me/Chinwer" target="_blank" rel="noopener" title="telegram" class="fab fa-telegram"></a></li>
+
+
+
+
+
+
+<li><a href="mailto:qiuyh0924@gmail.com" target="_blank" title="Email" class="far fa-envelope"></a></li>
+
+      </ul>
+  
+  <p class="copyright">
+    
+      &copy; 2020
+      
+        邱圆辉的博客
+      
+    . <br>
+    主题: <a href='https://themes.gohugo.io/hugo-future-imperfect-slim/' target='_blank' rel='noopener'>Hugo Future Imperfect Slim</a><br>移植自 <a href='https://html5up.net/future-imperfect' target='_blank' rel='noopener'>HTML5 UP</a> | 由 <a href='https://gohugo.io/' target='_blank' rel='noopener' title='0.73.0'>Hugo</a> 驱动
+  </p>
+</footer>
+<a id="back-to-top" href="#" class="fas fa-arrow-up fa-2x"></a>
+
+      <script src="/js/highlight.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script><script src="/js/bundle.min.25b75981613588670b44ec3137da5eea58be6c8e55cb67275a70996b848b9ca1.js" integrity="sha256-JbdZgWE1iGcLROwxN9pe6li&#43;bI5Vy2cnWnCZa4SLnKE="></script>
+    <script src="/js/add-on.js"></script>
+    </div>
+  </body>
+</html>
