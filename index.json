@@ -1,4 +1,10 @@
 [{
+    "title": "Win10 把CapsLock键映射为Esc键",
+    "date": "September 3, 2020",
+    "description": "Windows系统映射CapsLock为Esc",
+    "body": "因为编辑文本需要用到vim，所以把CapsLock映射为Esc比较方便。\n  把以下代码保存为caps.reg文件，运行。\nWindows Registry Editor Version 5.00\r[HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Keyboard Layout]\r\u0026quot;Scancode Map\u0026quot;=hex:00,00,00,00,00,00,00,00,02,00,00,00,01,00,3a,00,00,00,00,00\r  解释\n1. 00 00 00 00\r2. 00 00 00 00\r3. 02 00 00 00\r4. 01 00 3a 00\r5. 00 00 00 00\r 前两行和最后一行是固定的8个0 第三行第一个字节为非零行数，也就是需要映射的键位数+1 第四行表示把3a00（CapsLock）映射为0100（Esc）    ",
+    "ref": "/blog/win10-capslock-esc/"
+  },{
     "title": "Centos下hadoop, hive本地模式安装总结",
     "date": "August 20, 2020",
     "description": "hadoop, hive的安装总结",
